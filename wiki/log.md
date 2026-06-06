@@ -8,6 +8,35 @@ Permitted operations: `ingest`, `acquire`, `query`, `lint`, `synthesize`, `refac
 
 ---
 
+## [2026-06-06] ingest | Strategy & innovation articles batch: Porter 2008 Five Forces + McKinsey 7S + three Strategyzer pieces + Bezos two-way-door
+
+**Trigger.** User invoked "ingest everything not yet processed." Raw inventory: 6 article PDFs sitting un-processed in `raw/articles/` (no markdown conversions, no wiki pages). All confirmed full web-clipped articles via pre-flight (7–19 pp; identities verified from content). Acquired (pdftotext → `raw/articles/<slug>.md`) and processed in the same session.
+
+**Pages created (14 total):**
+
+- 6 source pages (all `kind: article`):
+  - [[2008-01-01-porter-five-competitive-forces]] — Porter (2008) *HBR* R0801E, confidence 0.9
+  - [[2020-07-07-mckinsey-7s-model]] — CFI explainer (Vipond 2020), secondary, confidence 0.7
+  - [[2020-03-16-explore-exploit-continuum]] — Strategyzer (Luo 2020), confidence 0.7
+  - [[2024-11-29-sme-innovation-powerhouse]] — Strategyzer (Osterwalder & Viki 2024), confidence 0.7
+  - [[2019-05-19-business-model-evolution-portfolio-map]] — Strategyzer (Osterwalder & Pigneur 2019), confidence 0.7
+  - [[2025-01-19-bezos-two-way-door-decision-making]] — Medium/ILLUMINATION (Yoshida 2025), secondary, confidence 0.65
+- 5 concept pages: [[porter-five-forces]], [[mckinsey-7s-framework]], [[organizational-ambidexterity]] (3 sources), [[business-model-innovation]] (2 sources), [[two-way-door-decisions]]
+- 2 entity pages: [[Alex-Osterwalder]] (promoted — author on 2 sources), [[Strategyzer]] (org; connective publisher of 3 sources)
+- 1 artifact page: [[porter-2008-industry-roic]] (Exhibit p.5 — ROIC by U.S. industry 1992–2006)
+
+**Cross-cutting touches.** Added body cross-references + relationships into existing concepts: [[real-options]] (← two-way-door instance), [[dynamic-capabilities]] (← seizing-side instantiations: ambidexterity / BMI / two-way-door + Porter as structure-side counterpart), [[strategic-risk-management]] (← Porter / 7S / real-options related-concepts block).
+
+**W&W `dynamic_capabilities:` tagging.** All 6 sources tagged (none skipped): Porter → `contextual/external-triggers`; 7S → `digital-transforming/redesigning-internal-structures`; explore-exploit → `digital-seizing/balancing-digital-portfolios` + `strategic-renewal/culture`; SME → `digital-seizing/rapid-prototyping` + `balancing-digital-portfolios` + `strategic-renewal/business-model`; portfolio-map → `digital-seizing/balancing-digital-portfolios` + `strategic-renewal/business-model`; Bezos → `digital-seizing/strategic-agility`.
+
+**Neighbour-source scan (step 5).** Strategyzer cluster (explore-exploit ↔ SME ↔ portfolio-map) wired with mutual `supports` edges on shared `balancing-digital-portfolios`. Bezos `supports` → Damodaran ch8 real-options (reversibility = option value). Porter `supports` → [[strategic-risk-management]] (industry structure as external risk surface). 7S `supports` → Kaplan-Norton Soundview summary (organisational alignment as execution lever).
+
+**Author-promotion rule.** Osterwalder promoted (2 sources). Dangling (single-source, deferred): Michael Porter, Tim Vipond, Yves Pigneur, Tendayi Viki, Lucy Luo, Dani Yoshida, Jeff Bezos (subject), Clay Christensen (referenced).
+
+**Honest scoping.** `pdftotext` dropped all images; framework diagrams (Five Forces, 7S, continuum, Portfolio Map) reconstructed from article prose and reproduced as Mermaid in the concept pages (noted "inferred from text; no frame capture"). The SME webinar's embedded video was not transcribed. Two secondary sources flagged for primary-source chase: McKinsey 7S primaries (Waterman/Peters/Phillips 1980; Peters & Waterman 1982); Bezos 1997 Amazon shareholder letter. The PwC *Innovation 1000* zero-R&D-correlation claim is reported second-hand — flagged in [[business-model-innovation]] §Debates pending primary acquisition.
+
+**Follow-up flagged.** Acquire March (1991) + O'Reilly–Tushman for [[organizational-ambidexterity]] (all 3 current sources are non-independent Strategyzer material); *The Invincible Company* (2020) for the Portfolio Map; PwC Innovation 1000 reports; independent BMI scholarship (Chesbrough, Zott & Amit, Teece).
+
 ## [2026-06-06] ingest | First content batch: Warner & Wäger 2019 (paper) + Damodaran 2008 (3 book chapters) + Kaplan & Norton 2004 Soundview summary (secondary source)
 
 **Trigger.** User invoked "ingest all new material" on a freshly cloned cmr-wiki. Raw inventory: 1 academic paper (W&W 2019), 3 PDFs initially labelled as "Strategy Maps chapters" (mismatch surfaced in pre-flight — actually Damodaran 2008 *Strategic Risk Taking* chapters 8, 11, 12), and 1 PDF labelled "StrategyMaps.pdf" that turned out to be an 8-page Soundview Executive Book Summary of Kaplan & Norton 2004, not the book itself.

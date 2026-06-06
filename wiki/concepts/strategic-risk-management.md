@@ -102,6 +102,12 @@ Companion sources from the same book, in scope for the current ingest batch:
 - [[2008-01-01-damodaran-2008-strategic-risk-taking-ch11-strategic-risk-management]] — the chapter where SRM is developed in detail (vs ch 12's synthesis).
 - [[2008-01-01-damodaran-2008-strategic-risk-taking-ch8-real-options]] — the upside-of-risk quantitative framework.
 
+## Related concepts
+
+- [[porter-five-forces]] — industry structure is an external strategic-risk surface: a firm's exposure to entrant / substitute / buyer-power shocks is itself a risk the SRM portfolio must allocate. (Porter's 2008 article supports this page.)
+- [[mckinsey-7s-framework]] — the Systems / Structure / Staff / Style elements map onto Damodaran's structural conditions for a successful risk-taking organisation.
+- [[real-options]] — the quantitative apparatus for the upside-of-risk reframe.
+
 ## Debates and supersession
 
 _None yet — single-source page._ Future sources (COSO ERM, ISO 31000, NIST RMF, Taleb-style anti-fragility frameworks) will refine or contest the framing.

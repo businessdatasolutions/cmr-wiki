@@ -84,6 +84,7 @@ The dot-com era's "growth options" argument failed the exclusivity test in most 
 Companion within the wiki:
 
 - [[strategic-risk-management]] — the broader concept real-options operationalises on the upside side.
+- [[two-way-door-decisions]] — the managerial/heuristic form of the option to abandon/reverse: a "two-way door" is a cheap option to back out, so reversibility creates option value.
 - [[damodaran-2008-five-edges-for-risk-exploitation]] — the *Flexibility* edge (one of five) is the real-options-quantified competitive advantage.
 - [[damodaran-2008-three-real-options-framework]] — the operational artifact for the three option types.
 - [[damodaran-2008-real-options-six-determinants]] — the options-pricing input reference table.

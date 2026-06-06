@@ -58,6 +58,16 @@ The [[warner-wager-process-model]] is the operational specialisation: 9 digitall
 
 (Synthesised from Helfat & Winter, 2011; Teece, 2014, 2018.)
 
+## Related wiki concepts (seizing-side instantiations)
+
+The practitioner-strategy cluster operationalises the **seizing** cluster at a concrete grain:
+
+- [[organizational-ambidexterity]] — the explore/exploit balance is the `balancing-digital-portfolios` seizing microfoundation in practitioner language.
+- [[business-model-innovation]] — maps onto the `strategic-renewal/business-model` outcome and the `rapid-prototyping` seizing microfoundation.
+- [[two-way-door-decisions]] — a decision heuristic for the `strategic-agility` seizing microfoundation.
+
+And the structure-side counterpart (a partial critique of the capability view): [[porter-five-forces]].
+
 ## Sources
 
 - [[2019-12-19-warner-wager-2019-dynamic-capabilities-digital-transformation]] — the digital-context specialisation; carries the wiki's canonical 15-cell W&W vocabulary.
