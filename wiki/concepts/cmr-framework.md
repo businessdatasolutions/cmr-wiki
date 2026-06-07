@@ -98,17 +98,17 @@ The helix wrapping the two diamonds is the **compounded-learning loop**: a trans
 
 | Phase | Loop | Dynamic-capability cell ([[warner-wager-process-model]]) | DevOps origin ([[2026-06-07-what-is-devops-atlassian]]) |
 | --- | --- | --- | --- |
-| **Scout** | Exploration | `digital-sensing/digital-scouting` | Discover |
-| **Sense** | Exploration | `digital-sensing/scenario-planning` | Plan / sensing |
+| **Sense** | Exploration | `digital-sensing/digital-scouting` — *the radar: broad signal detection* | Discover / Observe |
+| **Scout** | Exploration | `digital-sensing/scenario-planning` — *separating signal from noise* | Plan |
 | **Seize** | Exploration | `digital-seizing/rapid-prototyping` | Build / Test |
 | **Transfer** | **Crossover** | `digital-seizing/balancing-digital-portfolios` (explore→exploit handoff) | (Strategyzer *Transfer*) |
 | **Deploy** | Exploitation | `digital-seizing/strategic-agility` | Deploy |
 | **Transform** | Exploitation | `digital-transforming/improving-digital-maturity` | Operate |
 | **Monitor** | Exploitation | `digital-sensing` (operational) | Observe / Continuous feedback |
 
-Read as a cycle: **Scout → Sense → Seize** (explore: discover and validate the new) → **Transfer** (hand the validated learning across) → **Deploy → Transform → Monitor** (exploit: scale, embed, then watch) → feedback back to Scout. The exploration lobe is sensing-heavy; the exploitation lobe runs seize→transform→sense; the crossover is where compounded learning passes from one capability to the other. **Monitor sits last by design** — operational sensing is what closes the loop: the signals it produces re-seed Scout, making the feedback edge an explicit re-sensing step rather than a vague "back to start."
+Read as a cycle: **Sense → Scout → Seize** (explore: *Sense* is the radar that detects raw signals, *Scout* separates signal from noise, *Seize* acts on what survives) → **Transfer** (hand the validated learning across) → **Deploy → Transform → Monitor** (exploit: scale, embed, then watch) → feedback back to Sense. The exploration lobe is sensing-heavy; the exploitation lobe runs seize→transform→sense; the crossover is where compounded learning passes from one capability to the other. **Monitor sits last by design** — operational sensing is what closes the loop: the signals it produces re-seed **Sense** (the radar), making the feedback edge an explicit re-sensing step rather than a vague "back to start."
 
-> **Provenance note on ordering.** The phase *names* (Scout/Sense/Seize/Transfer/Deploy/Transform/Monitor) and the cycle *order* are the user's own distillation, not verbatim DevOps or W&W vocabulary — in particular the exploitation lobe is **Deploy → Transform → Monitor** (Monitor last, per the user's 2026-06-07 sequencing). The W&W cell and DevOps-origin columns are the *inferred mapping* onto that user-defined loop.
+> **Provenance note on ordering.** The phase *names* (Sense/Scout/Seize/Transfer/Deploy/Transform/Monitor) and the cycle *order* are the user's own distillation, not verbatim DevOps or W&W vocabulary. Two deliberate sequencing choices (both 2026-06-07): the exploration lobe is **Sense → Scout** (Sense is the radar; Scout separates signal from noise — so the names intentionally invert the W&W *scouting* label, which here maps to *Sense*), and the exploitation lobe is **Deploy → Transform → Monitor** (Monitor last, closing the loop). The W&W cell and DevOps-origin columns are the *inferred mapping* onto that user-defined loop.
 
 ## Quality modulators
 
