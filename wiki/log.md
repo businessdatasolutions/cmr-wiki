@@ -8,6 +8,24 @@ Permitted operations: `ingest`, `acquire`, `query`, `lint`, `synthesize`, `refac
 
 ---
 
+## [2026-06-07] ingest | Yves Morieux (BCG) — "Smart Simplicity" / complexity vs complicatedness (Brain Bar 2023 video)
+
+**Trigger.** The video deferred from the DevOps-cluster ingest earlier today. Both transcript paths (youtube-transcript-skill Playwright + yt-dlp fallback) stayed blocked by YouTube **HTTP 429** all session; the **user supplied the transcript** directly, unblocking the ingest. Separate topic from the DevOps cluster (organisational complexity / productivity).
+
+**Pages created (3):**
+
+- [[2024-02-02-bcg-yves-morieux-complexity-complicatedness]] — `kind: video`, Brain Bar 2023 (uploaded 2024-02-02), confidence 0.75.
+- [[smart-simplicity]] — concept (complexity vs complicatedness; cooperation > structure; the Six Simple Rules as citation-to-chase).
+- [[Yves-Morieux]] — entity (BCG MD / organisational economist; originator of Smart Simplicity). Promoted on a single source as the named framework author (the video `author:` is the channel "Brain Bar" per the video convention).
+
+**Honest scoping (load-bearing this time).** The video's captions are **auto-generated and heavily garbled** (fragmentary words, French `[Musique]`/`[Applaudissements]` artefacts). The source page **reconstructs** the argument from the recoverable transcript points + the **clean video description**; verbatim quotation avoided. Morieux's **"Six Simple Rules"** (Morieux & Tollman 2014 book) are **not cleanly in the transcript** — listed only as a forward-pointer/citation-to-chase, explicitly flagged as not-from-this-source.
+
+**W&W tags.** `contextual/internal-barriers` (complicatedness = rigid process/hierarchy/silos) + `strategic-renewal/collaborative-approach` (cooperation as the renewal). The talk's AI-warning (don't automate internal bureaucracy) noted as a caution on misapplied digital seizing.
+
+**Cross-links.** Concept + source link to [[organizational-culture]] (engagement/cooperation), [[mckinsey-7s-framework]] (complicatedness = over-engineered structure), [[team-topologies]] (silos/cognitive load), [[devops]] (cooperation/automation both target coordination friction — productive tension flagged in [[smart-simplicity]] §Debates), [[dynamic-capabilities]] (internal barriers vs collaborative renewal).
+
+**Follow-up.** Acquire **Morieux & Tollman (2014), *Six Simple Rules*** to substantiate the rules and lift confidence; optionally re-fetch a clean transcript when the YouTube rate-limit clears (the raw file notes the ASR provenance).
+
 ## [2026-06-07] ingest | DevOps / DevSecOps cluster: 4 Atlassian articles + Red Hat + GitLab + NIST NCCoE reference model
 
 **Trigger.** User: "ingest [a YouTube URL] and all new material in raw." The YouTube video (Yves Morieux / BCG, organizational complexity) is a **separate topic** and is **deferred** (YouTube rate-limited yt-dlp with HTTP 429 after the day's heavy use — see Follow-up). The new `raw/articles/` + `raw/papers/` material formed a coherent **DevOps / DevSecOps cluster** (7 sources), processed here.

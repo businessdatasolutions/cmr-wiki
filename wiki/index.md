@@ -55,6 +55,10 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 - [[2026-06-07-gitlab-what-is-devsecops]] — **article** — GitLab. DevSecOps four requirements (automation / collaboration / policy guardrails / visibility); SAST/DAST; 2022 survey. Confidence 0.75.
 - [[2026-06-07-nist-devsecops-reference-model]] — **report** — NIST NCCoE (SSDF). The notional DevSecOps reference model: 7-phase lifecycle + 5 dimensions incl. Zero Trust. Section 3 only (partial). Confidence 0.8.
 
+### Organizational complexity & productivity
+
+- [[2024-02-02-bcg-yves-morieux-complexity-complicatedness]] — **video** — Yves Morieux (BCG) at Brain Bar 2023 (~42 min). Organisations respond to rising complexity with self-defeating complicatedness (layers, silos, reporting); productivity stalls despite innovation; the cure is cooperation, not structure. ASR transcript (user-supplied). Confidence 0.75.
+
 ## Concepts
 
 ### Strategic management & dynamic capabilities
@@ -93,6 +97,10 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 - [[team-topologies]] — Four fundamental team types (stream-aligned / platform / complicated-subsystem / enabling) organised around cognitive load. 1 source.
 - [[dora-metrics]] — The four software-delivery metrics: deployment frequency, lead time, change failure rate, time to restore service. 3 sources.
 
+### Organizational complexity
+
+- [[smart-simplicity]] — Morieux's complexity-vs-complicatedness framework: organisations add structure/process/reporting (complicatedness) instead of enabling cooperation; productivity suffers. The "Six Simple Rules." 1 source.
+
 ## Entities
 
 - [[Aswath-Damodaran]] — Professor of Finance, NYU Stern. Author of the *Strategic Risk Taking* (2008) book providing the wiki's anchor on risk-management framework.
@@ -104,6 +112,7 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 - [[MIT-Sloan-Management-Review]] — Management-research publisher; the connective venue/channel for 6 of the 7 culture sources.
 - [[Atlassian]] — Enterprise-software vendor (Jira/Confluence/Bitbucket); the connective publisher of the DevOps cluster (4 sources).
 - [[Ian-Buchanan]] — Atlassian Principal Solutions Engineer; author of the CALMS and Team Topologies explainers.
+- [[Yves-Morieux]] — BCG Managing Director & organisational economist; originator of Smart Simplicity / the Six Simple Rules.
 
 ## Threads
 
