@@ -61,10 +61,14 @@ if (remaining.length === 0) {
 
 const query = remaining.join(' ');
 
+// qmd collection for this repo's wiki. Scoped explicitly so results never
+// bleed in from other qmd collections registered on the same machine.
+const COLLECTION = 'cmr-wiki';
+
 // ----- Step 1: run qmd query --json -----
 const qmd = spawnSync(
   'npx',
-  ['--yes', '@tobilu/qmd', 'query', query, '--json', '-n', String(n)],
+  ['--yes', '@tobilu/qmd', 'query', query, '--json', '-n', String(n), '-c', COLLECTION],
   { cwd: REPO_ROOT, encoding: 'utf8' },
 );
 
@@ -120,7 +124,7 @@ for (let i = 0; i < hits.length; i++) {
   console.log('');
 
   // Collect bump candidates — extract slug from path
-  // Path format examples: "qmd://ai-wiki/concepts/foo.md", "wiki/concepts/foo.md", "concepts/foo.md"
+  // Path format examples: "qmd://cmr-wiki/concepts/foo.md", "wiki/concepts/foo.md", "concepts/foo.md"
   const m = path.match(/(?:^|\/)(?:wiki\/)?(concepts|entities|syntheses)\/([^/]+)\.md$/);
   if (m) bumpCandidates.add(m[2]);
 }

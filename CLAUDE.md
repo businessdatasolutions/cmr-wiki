@@ -17,7 +17,7 @@ The wiki is instantiated. As of v0.2 the repo contains:
 - Page-type frontmatter: `type: source | entity | concept | thread | synthesis | artifact`; `kind:` discriminator on entities and sources; `artifact_kind:` discriminator on artifacts.
 - Log entries: `## [YYYY-MM-DD] <op> | <title>` where `<op>` ∈ `ingest | acquire | query | lint | synthesize | refactor | bulk-refactor`. (`acquire` is the v0.9 addition — used only when raw files land without same-session processing; the umbrella op for the typical case remains `ingest`.)
 - Quartz publishing via `npm run build` / `npm run serve`; custom extensions in `extensions/`.
-- **v0.5 is fully landed (2026-05-17).** All three slices: **retention** (`accessed_at` on concepts + entities + syntheses; §Retention decay curve as lint signal), **search** ([qmd](https://github.com/tobi/qmd) / `@tobilu/qmd` registered as collection `ai-wiki`; 205 docs / 1466 chunks; BM25 + vector + query-expansion local models in `~/.cache/qmd/`), **quality** (`quality_score` + `quality_notes` on concepts and syntheses via [`scripts/quality-score.mjs`](scripts/quality-score.mjs); mechanical rubric across structure / citations / cross-consistency). Manual `accessed_at` bumps via [`scripts/bump-accessed.mjs`](scripts/bump-accessed.mjs) pending MCP integration. See [§Lifecycle](#lifecycle), [§Retention](#retention), [§Quality](#quality), [§Search](#search).
+- **v0.5 is fully landed (2026-05-17).** All three slices: **retention** (`accessed_at` on concepts + entities + syntheses; §Retention decay curve as lint signal), **search** ([qmd](https://github.com/tobi/qmd) / `@tobilu/qmd` registered as collection `cmr-wiki` (re-pointed 2026-06-07 from the inherited `ai-wiki` name); BM25 + vector + query-expansion local models in `~/.cache/qmd/`), **quality** (`quality_score` + `quality_notes` on concepts and syntheses via [`scripts/quality-score.mjs`](scripts/quality-score.mjs); mechanical rubric across structure / citations / cross-consistency). Manual `accessed_at` bumps via [`scripts/bump-accessed.mjs`](scripts/bump-accessed.mjs) pending MCP integration. See [§Lifecycle](#lifecycle), [§Retention](#retention), [§Quality](#quality), [§Search](#search).
 - **v0.6 LLM-as-judge slice lands (2026-05-25) for source pages.** `node scripts/quality-source-page.mjs --judge` filters to `kind: paper`, computes the mechanical floor, then invokes headless Claude Code via [`scripts/_lib/llm-judge.mjs`](scripts/_lib/llm-judge.mjs) for the substantive overlay. Scores live only in `logs/quality-source-pages.jsonl` — never in the page. Concepts/syntheses remain mechanical-only. See [§Source-page scoring (v0.6)](#source-page-scoring-v06).
 
 The implementation roadmap for v2 features lives in [`llm-wiki-v2-plan.md`](llm-wiki-v2-plan.md): eight staged versions (v0.2 → v0.9). Each version lands schema before tooling, and bulk migrations are supervised batches.
@@ -673,8 +673,8 @@ At ~200 pages the wiki has outgrown `index.md` as a primary discovery surface. v
 ### What lives where
 
 - **qmd's index** (BM25 inverted index + 768-d embeddings per page) lives outside the repo, in qmd's own data directory (typically `~/.qmd/`). It is not committed.
-- **The collection mapping** is registered with qmd as the named collection `ai-wiki`, rooted at `./wiki` with the glob `**/*.md` (so the 205-page corpus of concepts, entities, sources, threads, syntheses, plus `index.md` and `log.md` is indexable).
-- **The collection context-string** (registered via `qmd context add qmd://ai-wiki "..."`) carries the schema summary so qmd's LLM re-ranker has framing when surfacing results.
+- **The collection mapping** is registered with qmd as the named collection `cmr-wiki`, rooted at `./wiki` with the glob `**/*.md` (so the corpus of concepts, entities, sources, artifacts, threads, syntheses, plus `index.md` and `log.md` is indexable). *(Re-pointed 2026-06-07: this repo originally inherited the `ai-wiki` collection name from its predecessor; `ai-wiki` belongs to a separate repo, so cmr-wiki has its own collection. Create it scoped to `wiki/` — e.g. `cd wiki && qmd collection add . && cd .. && qmd collection rename wiki cmr-wiki` — since `qmd collection add <path>` derives the name from the path leaf.)*
+- **The collection context-string** (registered via `qmd context add qmd://cmr-wiki "..."`) carries the schema summary so qmd's LLM re-ranker has framing when surfacing results.
 - The wiki's typed graph (`wiki/.graph.json` from v0.3) remains the third retrieval stream; it is **not** indexed by qmd. Graph traversal is invoked separately (see §Graph) and merged with qmd's hits via Reciprocal Rank Fusion at the query-answering layer.
 
 ### When to use qmd vs `index.md`
@@ -699,17 +699,18 @@ Run via `npx @tobilu/qmd <command>` (no global install needed) or `qmd <command>
 - **`qmd get "<path>"`** — fetch a specific document by path, or `qmd get "#<docid>"` by qmd's internal id (shown in search results).
 - **`qmd multi-get "<glob>"`** — fetch multiple documents by glob (e.g. `"sources/2026-05*.md"`).
 
-The **collection name** (`ai-wiki`) becomes a URI prefix in qmd's output: results are reported as `qmd://ai-wiki/<path>`. Treat that as the wiki source-of-truth path.
+The **collection name** (`cmr-wiki`) becomes a URI prefix in qmd's output: results are reported as `qmd://cmr-wiki/<path>`. Treat that as the wiki source-of-truth path. Scope queries to the collection with `-c cmr-wiki` so results don't bleed in from other qmd collections on the same machine ([`scripts/wiki-query.mjs`](scripts/wiki-query.mjs) already does this via its `COLLECTION` constant).
 
 ### Re-embedding after writes
 
-qmd's index does not auto-refresh. After ingest sessions that add or substantially edit pages, refresh:
+qmd's index does not auto-refresh. After ingest sessions that add or substantially edit pages, **re-index then re-embed** the collection:
 
 ```sh
-npx @tobilu/qmd embed
+npx @tobilu/qmd update -c cmr-wiki   # re-scan wiki/ so new/changed files enter the index
+npx @tobilu/qmd embed  -c cmr-wiki   # compute vectors for changed-hash docs only
 ```
 
-This computes embeddings only for pages whose content hash changed (qmd tracks hashes per document). On a typical post-ingest run (5–10 pages touched), this is seconds. A full rebuild is rare.
+`update` picks up newly added pages (a bare `embed` only embeds docs qmd already knows about, so new files would be silently missed). `embed` then computes embeddings only for pages whose content hash changed. On a typical post-ingest run (5–10 pages touched), both are seconds. A full rebuild is rare.
 
 ### Re-ranking by `effective_confidence`
 
