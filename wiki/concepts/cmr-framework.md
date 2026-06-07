@@ -61,8 +61,8 @@ flowchart LR
 
   EXPL --> GROW
   EXPT --> PROF
-  MGMT -- "Strategic Risk-Taking quality<br/>(strategic risk)" --> RISK
-  MGMT -- "Strategic Risk-Mitigation quality<br/>(tactical risk)" --> RISK
+  MGMT -- "Strategic Risk-Taking quality" --> RISK
+  MGMT -- "Strategic Risk-Mitigation quality" --> RISK
   MGMT -.->|steers| EXPL
   MGMT -.->|steers| EXPT
   GROW --> VAL
