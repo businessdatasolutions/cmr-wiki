@@ -51,3 +51,6 @@ raw/videos/test.txt
 # Generated HTML exports under inspiration/ (re-derivable from the source .md)
 inspiration/*.html
 inspiration/*_files/
+
+# Background working docs — local scratch (blueprints, excalidraw, drafts); not published
+background-docs/
