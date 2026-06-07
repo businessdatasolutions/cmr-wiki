@@ -35,6 +35,16 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 
 - [[2025-01-19-bezos-two-way-door-decision-making]] — Medium/ILLUMINATION (Dani Yoshida, 2025). Popularises Bezos's two-way-door (reversible) vs one-way-door (irreversible) decision heuristic — match deliberation to irreversibility. Secondary source; confidence 0.65.
 
+### Organizational culture (MIT SMR / Culture 500)
+
+- [[2024-06-20-oreilly-2024-culture-archetypes-firm-performance]] — **paper** — O'Reilly, Cao & Sull (*J. Business Research* 182, 2024). NLP measure of culture on 309 U.S. firms; the 9 values factor into 3 archetypes (performance / people / customer); only **performance-orientation** robustly predicts objective firm performance, **people culture shows no objective-performance link**. Confidence 0.85.
+- [[2023-05-31-building-a-winning-workplace-culture]] — **video** — MIT SMR webinar (Don & Charlie Sull, 2023, 59 min). The Culture 500 research applied to leadership; toxic culture = #1 Great-Resignation attrition driver (10× compensation). Confidence 0.8.
+- [[2021-09-16-ten-things-corporate-culture]] — **article** — Sull & Sull (MIT SMR, 2021). SHAP analysis of 1.4M Glassdoor reviews → the 10 employee-rated culture elements; **Respect #1 (~18×)**. Confidence 0.85.
+- [[2020-09-01-culture-500-the-research]] — **article** — Sull & Sull / CultureX. The Culture 500 methodology + the **Big 9** value definitions. Confidence 0.8.
+- [[2019-06-26-introducing-mit-smr-glassdoor-culture-500]] — **video** — Culture 500 launch explainer (1:39). Confidence 0.7.
+- [[2019-06-26-measuring-company-culture-with-ai]] — **video** — the human+ML NLP method explainer (1:20; the Dairy Queen "fudge" example). Confidence 0.7.
+- [[2019-06-26-the-9-key-values-for-company-culture]] — **video** — the Big 9 explainer + definition of culture (0:39). Confidence 0.7.
+
 ## Concepts
 
 ### Strategic management & dynamic capabilities
@@ -58,11 +68,22 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 - [[organizational-ambidexterity]] — The explore-vs-exploit capacity: running new-business search and existing-business execution simultaneously, harmonising two antagonistic cultures. The seizing-side `balancing-digital-portfolios` capability in practitioner language. 3 sources.
 - [[business-model-innovation]] — Competitive advantage from changing how value is created/delivered/captured, not from product/technology novelty. The Portfolio Map lifecycle + the model-over-technology claim. 2 sources.
 
+### Organizational culture
+
+- [[organizational-culture]] — Values deeply held, widely shared, shaping day-to-day behaviour (Schein's norms-and-values layer). The overarching concept; separates employee-experience drivers from objective-firm-performance drivers. 7 sources.
+- [[big-9-cultural-values]] — The nine Culture 500 values (Agility, Collaboration, Customer, Diversity, Execution, Innovation, Integrity, Performance, Respect) with definitions. 6 sources.
+- [[cultural-archetypes]] — Performance-orientation / people / customer — the three-factor structure the Big 9 reduce to; only performance-orientation robustly predicts firm financials. 1 source (peer-reviewed).
+- [[measuring-culture-with-nlp]] — The CultureX human-in-the-loop NLP method for measuring culture from Glassdoor reviews (20,000+ terms → 80+ values). 6 sources.
+
 ## Entities
 
 - [[Aswath-Damodaran]] — Professor of Finance, NYU Stern. Author of the *Strategic Risk Taking* (2008) book providing the wiki's anchor on risk-management framework.
 - [[Alex-Osterwalder]] — Co-founder & CEO of Strategyzer; inventor of the Business Model Canvas. Author of the wiki's business-model-innovation / explore-exploit sources.
 - [[Strategyzer]] — Swiss strategy-and-innovation firm; the connective publisher of the wiki's corporate-innovation cluster (3 sources).
+- [[Donald-Sull]] — MIT Sloan senior lecturer; CultureX co-founder; directs the Culture 500. The connective figure across the organizational-culture cluster (paper + 2 articles + webinars).
+- [[Charles-Sull]] — CultureX co-founder; co-author of the Culture 500 research.
+- [[CultureX]] — Culture-analytics firm behind the Culture 500's NLP measure; the research organisation underpinning the culture cluster (5 sources).
+- [[MIT-Sloan-Management-Review]] — Management-research publisher; the connective venue/channel for 6 of the 7 culture sources.
 
 ## Threads
 
@@ -85,3 +106,9 @@ _No syntheses yet._
 ### Porter 2008 — Five Competitive Forces
 
 - [[porter-2008-industry-roic]] — Average ROIC by U.S. industry, 1992–2006 (S&P Compustat). The empirical exhibit motivating Five Forces: ~7× profitability spread (Security Brokers 40.9% → Airlines 5.9%) driven by industry structure, not sector. From p. 5.
+
+### Organizational culture (Culture 500 / O'Reilly 2024)
+
+- [[oreilly-2024-archetype-factor-loadings]] — Table 2: varimax factor analysis loading the 9 Big-9 values onto the 3 archetypes (performance / people / customer), n = 309.
+- [[oreilly-2024-archetype-performance-regressions]] — Table 4: OLS regressions of 5 firm-performance measures on the 3 archetypes; performance-orientation positive across the board, people archetype null.
+- [[sull-2021-ten-culture-elements]] — The 10 employee-rated culture elements (SHAP), Respect #1 (~18×); the employee-experience counterpart to the firm-performance archetypes.

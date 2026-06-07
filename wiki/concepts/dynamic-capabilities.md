@@ -6,9 +6,9 @@ aliases:
   - "dynamic capabilities framework"
   - "sensing seizing transforming"
 confidence: 0.85
-last_confirmed: 2026-06-06
+last_confirmed: 2026-06-07
 source_count: 1
-accessed_at: 2026-06-06
+accessed_at: 2026-06-07
 tags:
   - strategic-management
   - organisational-capabilities
@@ -67,6 +67,8 @@ The practitioner-strategy cluster operationalises the **seizing** cluster at a c
 - [[two-way-door-decisions]] — a decision heuristic for the `strategic-agility` seizing microfoundation.
 
 And the structure-side counterpart (a partial critique of the capability view): [[porter-five-forces]].
+
+The culture cluster connects here too: **Agility** is both a [[big-9-cultural-values|Big 9]] value and the `digital-seizing/strategic-agility` microfoundation, and a performance-orientation [[cultural-archetypes|culture archetype]] (execution + agility + innovation) is what [[2024-06-20-oreilly-2024-culture-archetypes-firm-performance|empirically predicts firm performance]] — culture as the substrate of dynamic capability.
 
 ## Sources
 

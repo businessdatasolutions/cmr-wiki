@@ -7,9 +7,9 @@ aliases:
   - "enterprise risk management"
   - "ERM"
 confidence: 0.8
-last_confirmed: 2026-06-06
+last_confirmed: 2026-06-07
 source_count: 1
-accessed_at: 2026-06-06
+accessed_at: 2026-06-07
 tags:
   - risk-management
   - strategic-management
@@ -107,6 +107,7 @@ Companion sources from the same book, in scope for the current ingest batch:
 - [[porter-five-forces]] — industry structure is an external strategic-risk surface: a firm's exposure to entrant / substitute / buyer-power shocks is itself a risk the SRM portfolio must allocate. (Porter's 2008 article supports this page.)
 - [[mckinsey-7s-framework]] — the Systems / Structure / Staff / Style elements map onto Damodaran's structural conditions for a successful risk-taking organisation.
 - [[real-options]] — the quantitative apparatus for the upside-of-risk reframe.
+- [[organizational-culture]] — toxic/weak culture is a strategic risk to firm value; [[2024-06-20-oreilly-2024-culture-archetypes-firm-performance|O'Reilly, Cao & Sull (2024)]] quantifies the culture→performance link, and toxic culture was the #1 attrition driver in the Great Resignation.
 
 ## Debates and supersession
 

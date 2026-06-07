@@ -8,6 +8,38 @@ Permitted operations: `ingest`, `acquire`, `query`, `lint`, `synthesize`, `refac
 
 ---
 
+## [2026-06-07] ingest | Organizational-culture cluster: O'Reilly-Cao-Sull 2024 paper + 4 MIT SMR Culture 500 videos + 2 Sull articles
+
+**Trigger.** User: "ingest [4 YouTube URLs] and all the newly added raw material." The four videos + two new article PDFs (`raw/articles/`) + one new paper PDF (`raw/papers/1-s2.0-S0148296324002844-main.pdf`) turned out to be a single coherent **organizational-culture cluster**, all from the MIT SMR / CultureX **Culture 500** research programme and connected by **Donald Sull**.
+
+**Acquire — video transcripts via yt-dlp fallback.** The [`youtube-transcript-skill`](../.claude/skills/youtube-transcript-skill) Playwright path hit the documented *"transcript panel did not render"* failure on all 4 videos (even at 60s timeout). Per the skill's failure-mode notes, used **yt-dlp** (`~/.pyenv/.../bin/yt-dlp`, json3 captions) as the fallback — all 4 had **manual (human-curated)** English caption tracks, so fidelity is high. Landed at `raw/videos/<slug>.md` with the canonical YAML frontmatter contract (provenance recorded in each `notes:` field).
+
+**Pages created (18 total):**
+
+- 7 source pages:
+  - [[2024-06-20-oreilly-2024-culture-archetypes-firm-performance]] — `kind: paper`, Pass 2, confidence 0.85 (JBR 182:114780; DOI 10.1016/j.jbusres.2024.114780)
+  - [[2023-05-31-building-a-winning-workplace-culture]] — `kind: video`, 59-min Sull webinar, confidence 0.8
+  - [[2021-09-16-ten-things-corporate-culture]] — `kind: article`, Sull & Sull MIT SMR, confidence 0.85
+  - [[2020-09-01-culture-500-the-research]] — `kind: article`, Culture 500 methodology + Big 9, confidence 0.8 (date approximate — data window Jan2015–Sep2020)
+  - [[2019-06-26-introducing-mit-smr-glassdoor-culture-500]], [[2019-06-26-measuring-company-culture-with-ai]], [[2019-06-26-the-9-key-values-for-company-culture]] — `kind: video`, explainer trio, confidence 0.7
+- 4 concept pages: [[organizational-culture]] (7 sources), [[big-9-cultural-values]] (6), [[measuring-culture-with-nlp]] (6), [[cultural-archetypes]] (1, peer-reviewed)
+- 3 artifact pages: [[oreilly-2024-archetype-factor-loadings]] (Table 2), [[oreilly-2024-archetype-performance-regressions]] (Table 4), [[sull-2021-ten-culture-elements]] (the 10 SHAP elements)
+- 4 entity pages: [[Donald-Sull]] (4 sources), [[Charles-Sull]] (2), [[CultureX]] (org, 5), [[MIT-Sloan-Management-Review]] (org/venue, `author:` on 4 videos)
+
+**Headline findings.** (a) The Big 9 values factor into **3 archetypes** (performance / people / customer); (b) **only performance-orientation robustly predicts objective firm performance** — the **people archetype shows no objective-performance association** despite its links to satisfaction/engagement; (c) by contrast, **Respect is the #1 driver of employees' culture ratings (~18×)**. The load-bearing wiki claim: *employee-experience drivers ≠ firm-performance drivers* — recorded in [[organizational-culture]] §Debates.
+
+**Cross-cutting touches.** Added body cross-references + bumped dates on [[mckinsey-7s-framework]] (Shared Values = culture), [[strategic-risk-management]] (toxic culture as risk), [[dynamic-capabilities]] (Agility value / performance-orientation archetype).
+
+**W&W `dynamic_capabilities:` tagging skipped on all 7.** Organizational-culture-and-performance sits outside the Warner & Wäger digital-transformation lens (same rationale as the Damodaran chapters). Conceptual links to `dynamic-capabilities` / `mckinsey-7s` made in-body instead.
+
+**Neighbour-source scan (step 5).** Within-cluster `supports` edges: paper → culture-500 + ten-things; ten-things → culture-500; webinar → ten-things + culture-500; the 3 explainer videos → culture-500 (their hub). Cross-cluster: paper `supports` → [[strategic-risk-management]].
+
+**Author-promotion rule.** Promoted Donald Sull (paper + 2 articles), Charles Sull (2 articles), MIT SMR (`author:` on 4 videos). CultureX promoted as connective research org (Strategyzer precedent). Dangling (single-source): Charles O'Reilly, Xubo Cao, Ally MacDonald.
+
+**Honest scoping.** Manual captions need minimal cleanup but the 59-min webinar's slide visuals are described from transcript verbal cues only (no frame capture). The Culture 500 "The Research" page is undated (date inferred). The PwC-style claims and CultureX accuracy figures are vendor-reported. Single-pipeline dependency (Sull/CultureX measure underlies every culture finding, and Sull co-authored the paper that tests it) flagged on [[measuring-culture-with-nlp]], [[cultural-archetypes]], [[organizational-culture]].
+
+**Follow-up flagged.** Acquire independent culture-measurement sources (March 1991 is unrelated; here: Schein 2010, Competing Values Framework, Denison DOCS, Hartnell et al.) to break the single-pipeline dependency and lift confidence; promote Charles O'Reilly to an entity on a second O'Reilly source.
+
 ## [2026-06-06] ingest | Strategy & innovation articles batch: Porter 2008 Five Forces + McKinsey 7S + three Strategyzer pieces + Bezos two-way-door
 
 **Trigger.** User invoked "ingest everything not yet processed." Raw inventory: 6 article PDFs sitting un-processed in `raw/articles/` (no markdown conversions, no wiki pages). All confirmed full web-clipped articles via pre-flight (7–19 pp; identities verified from content). Acquired (pdftotext → `raw/articles/<slug>.md`) and processed in the same session.

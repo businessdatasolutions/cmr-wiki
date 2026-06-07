@@ -7,9 +7,9 @@ aliases:
   - "Seven S framework"
   - "Hard Ss and Soft Ss"
 confidence: 0.7
-last_confirmed: 2026-06-06
+last_confirmed: 2026-06-07
 source_count: 1
-accessed_at: 2026-06-06
+accessed_at: 2026-06-07
 tags:
   - mckinsey-7s
   - organizational-design
@@ -84,6 +84,7 @@ Canonical use case: a **merger** simultaneously disrupts Structure, Staff, and S
 - **Strategy-execution alignment.** Shares its core logic with the Kaplan & Norton strategy-map approach ([[2004-04-01-kaplan-norton-2004-strategy-maps-soundview-summary]]): strategy fails without alignment of the soft/intangible elements (skills, culture, leadership) to the hard ones (structure, systems).
 - **Risk-taking organisation.** The Systems/Structure/Staff/Style elements map onto Damodaran's structural conditions for a [[strategic-risk-management|successful risk-taking organisation]] (governance, personnel, structure-culture).
 - **Digital re-structuring.** Read through [[dynamic-capabilities]], the 7S re-alignment problem is the generic form of the W&W `redesigning-internal-structures` microfoundation.
+- **Shared Values = culture.** The centre element, Shared Values, *is* [[organizational-culture]] — the aligning core that the Culture 500 research measures empirically (the [[big-9-cultural-values|Big 9]] and [[cultural-archetypes|archetypes]]).
 
 ## Sources
 
