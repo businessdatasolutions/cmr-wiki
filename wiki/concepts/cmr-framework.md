@@ -59,33 +59,36 @@ flowchart LR
   end
   VAL(("Value"))
 
-  EXPL -- "Strategic Risk-Taking quality" --> GROW
-  EXPT -- "Compounded Learning quality" --> PROF
-  MGMT -- "Strategic Risk-Mitigation quality" --> RISK
+  EXPL --> GROW
+  EXPT --> PROF
+  MGMT -- "Strategic Risk-Taking quality<br/>(strategic risk)" --> RISK
+  MGMT -- "Strategic Risk-Mitigation quality<br/>(tactical risk)" --> RISK
   MGMT -.->|steers| EXPL
   MGMT -.->|steers| EXPT
   GROW --> VAL
   PROF --> VAL
   RISK --> VAL
 
-  EXPL <== "continuous-learning helix (DevOps ∞ loop)" ==> EXPT
+  EXPL <== "continuous-learning helix (DevOps ∞ loop)<br/>· Compounded Learning quality" ==> EXPT
 ```
 
-The helix coil physically wraps the two capability diamonds in the diagram; the double-arrow above stands in for it.
+The helix coil physically wraps the two capability diamonds in the diagram; the double-arrow above stands in for it. **Both risk qualities attach to Management → Risk** — Management Capability manages *strategic* risk (taking) and *tactical* risk (mitigation) together; neither is an Exploration/Growth-edge property. *Compounded Learning quality* sits on the helix crossover.
 
 ## Value core — Profit / Risk / Growth → Value
 
-The right-hand cluster is a **value-driver tree**: the firm's **Value** is composed of three drivers — **Profit**, **Risk** and **Growth** — each feeding the central node. Treating **Risk as a value driver** rather than only a cost is the [[strategic-risk-management]] move: risk has an upside (taking it well drives Growth) and a downside (mitigating it well protects Profit). The valuation logic behind "drivers → Value" is the [[real-options|option]] and discounted-value reasoning catalogued from Damodaran ([[2008-01-01-damodaran-2008-strategic-risk-taking-ch11-strategic-risk-management]]); the intangible-to-value linkage echoes Kaplan & Norton's strategy maps ([[2004-04-01-kaplan-norton-2004-strategy-maps-soundview-summary]]).
+The right-hand cluster is a **value-driver tree**: the firm's **Value** is composed of three drivers — **Profit**, **Risk** and **Growth** — each feeding the central node, and **each the outcome of exactly one capability** (Exploitation → Profit, Management → Risk, Exploration → Growth). Treating **Risk as a value driver in its own right** rather than only a cost is the [[strategic-risk-management]] move: Management's two risk modes do not *become* Growth or Profit — they **enable** them. Strategic risk-taking, done well, is what lets Exploration pursue Growth; tactical risk-mitigation, done well, is what protects Exploitation's regular Profit stream. The valuation logic behind "drivers → Value" is the [[real-options|option]] and discounted-value reasoning catalogued from Damodaran ([[2008-01-01-damodaran-2008-strategic-risk-taking-ch11-strategic-risk-management]]); the intangible-to-value linkage echoes Kaplan & Norton's strategy maps ([[2004-04-01-kaplan-norton-2004-strategy-maps-soundview-summary]]).
 
 ## Capability engine — explore / exploit + Management
 
-The left cluster is the **engine that produces the drivers**. It is the [[organizational-ambidexterity]] pair plus a governor:
+The left cluster is the **engine that produces the drivers**. It is the [[organizational-ambidexterity]] pair plus a governor. **Each capability produces exactly one value-driver outcome:**
 
-| Node | Role | Drives |
+| Node | Role | Outcome (its value driver) |
 | --- | --- | --- |
-| **Exploration Capability** | search for new value propositions under high uncertainty | **Growth** |
-| **Exploitation Capability** | run and optimise the existing business under low uncertainty | **Profit** |
-| **Management Capability** | govern the portfolio; allocate, balance, decide | **Risk** (and *steers* both capability diamonds) |
+| **Exploration Capability** | search for new value propositions under high uncertainty | **Growth** — new value, new streams |
+| **Exploitation Capability** | run and optimise the existing business under low uncertainty | **Profit** — *sustaining a regular, recurring profit stream* from the established business |
+| **Management Capability** | govern the portfolio; allocate, balance, decide; manage **both strategic risk (taking) and tactical risk (mitigation)** | **Risk** — the risk component of value (and *steers* both capability diamonds) |
+
+The clean reading: **Exploration grows new value, Exploitation sustains existing profit, Management governs risk.** Three capabilities, three non-overlapping value drivers, one Value.
 
 Management as a distinct, governing capability (drawn as a rectangle, not a diamond) is the part of the model that decides how much to bet on explore vs exploit — the C-suite balancing act that [[warner-wager-process-model]] places under `digital-seizing/balancing-digital-portfolios` and that [[organizational-ambidexterity]] frames as "running the whole continuum at once."
 
@@ -109,11 +112,13 @@ Read as a cycle: **Scout → Sense → Seize** (explore: discover and validate t
 
 ## Quality modulators
 
-Three "quality" annotations modulate the capability→driver links — they are the *how well* on each edge:
+Three "quality" annotations modulate the model — they are the *how well*:
 
-- **Compounded Learning quality** — on the crossover, governing how well exploitation compounds the lessons exploration produces. The faster and cleaner the [[devops|loop]], the more this compounds.
-- **Strategic Risk-Taking quality** — on the Exploration → Growth edge: how well the firm takes option-like bets ([[real-options]], [[two-way-door-decisions]]).
-- **Strategic Risk-Mitigation quality** — on the Management/Profit → Risk edge: how well downside is contained ([[strategic-risk-management]]).
+- **Compounded Learning quality** — on the **helix crossover**, governing how well learning compounds between exploration and exploitation. The faster and cleaner the [[devops|loop]], the more it compounds.
+- **Strategic Risk-Taking quality** — *strategic* risk, owned by **Management Capability**: how well the firm takes option-like upside bets ([[real-options]], [[two-way-door-decisions]]).
+- **Strategic Risk-Mitigation quality** — *tactical* risk, owned by **Management Capability**: how well downside is contained ([[strategic-risk-management]]).
+
+**Both risk qualities are dimensions of Management Capability's governance of the Risk driver** — Management manages *strategic* risk (taking) and *tactical* risk (mitigation) as one job, not two separate owners. They modulate the Management → Risk edge; neither belongs to Exploration's Growth path. (An earlier draft mis-attributed risk-taking to the Exploration→Growth edge — corrected 2026-06-07.)
 
 ## How it marries the source models
 
