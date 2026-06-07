@@ -1,0 +1,158 @@
+---
+type: concept
+title: "CMR framework (Capability–Market–Risk)"
+aliases:
+  - "CMR"
+  - "Capability-Market-Risk"
+  - "CMR matrix"
+confidence: 0.72
+last_confirmed: 2026-06-07
+source_count: 8
+accessed_at: 2026-06-07
+tags:
+  - cmr-framework
+  - business-architecture
+  - dynamic-capabilities
+  - organizational-ambidexterity
+  - devops
+  - strategic-risk
+relationships:
+  - type: uses
+    target: organizational-ambidexterity
+    via: "the two capability diamonds are the explore/exploit pair; the 'Transfer' phase is the continuum's explore→exploit handoff"
+  - type: uses
+    target: dynamic-capabilities
+    via: "the sensing/seizing/transforming triad is the engine of the continuous-learning helix"
+  - type: uses
+    target: warner-wager-process-model
+    via: "each helix phase maps to a W&W microfoundation cell"
+  - type: uses
+    target: devops
+    via: "the helix is the DevOps infinity loop translated into capability phases"
+  - type: uses
+    target: strategic-risk-management
+    via: "the Risk driver and the risk-taking / risk-mitigation quality modulators"
+quality_score: 1
+---
+
+# CMR framework (Capability–Market–Risk)
+
+**CMR** is a personal **business-architecture synthesis** that marries several otherwise-overlapping strategy models into one non-redundant model. In its originating blueprint (`background-docs/cmr-framework-blueprint.html`, local scratch) **CMR = Capability–Market–Risk**: an AI-native consolidation of [[mckinsey-7s-framework|McKinsey 7S]], VRIO, [[porter-five-forces|Porter's Five Forces]] and DESTEP into a small set of **non-overlapping dimensions across three pillars** (Capability, Market, Risk), so that no concept is re-derived — or contradicted — in two places.
+
+This page documents the **final design** (`background-docs/cmr-framework.excalidraw`, local scratch): a value-driver model in which an explore/exploit **capability engine**, turning on a continuous **compounded-learning helix**, produces the firm's **Value**. The synthesis is user-originated; the wiki's role is to ground each component in the source frameworks it integrates.
+
+**Scope of the model as drawn.** What the diagram shows is the **internal architecture of the organisation** — its capabilities, value drivers, and the learning loop that connects them. Of the blueprint's three CMR pillars, **Capability** and **Risk** are realised inside this interior; the **Market** pillar is an **external force** that has not yet been placed (see [§ Debates](#debates-and-supersession)). The model is therefore best read as *the inside of the firm boundary*, with Market as the environment that boundary faces.
+
+## The model at a glance
+
+```mermaid
+flowchart LR
+  subgraph ENGINE["Capability engine (left)"]
+    EXPL["Exploration<br/>Capability"]
+    EXPT["Exploitation<br/>Capability"]
+    MGMT["Management<br/>Capability"]
+  end
+  subgraph DRIVERS["Value drivers"]
+    GROW["Growth"]
+    PROF["Profit"]
+    RISK["Risk"]
+  end
+  VAL(("Value"))
+
+  EXPL -- "Strategic Risk-Taking quality" --> GROW
+  EXPT -- "Compounded Learning quality" --> PROF
+  MGMT -- "Strategic Risk-Mitigation quality" --> RISK
+  MGMT -.->|steers| EXPL
+  MGMT -.->|steers| EXPT
+  GROW --> VAL
+  PROF --> VAL
+  RISK --> VAL
+
+  EXPL <== "continuous-learning helix (DevOps ∞ loop)" ==> EXPT
+```
+
+The helix coil physically wraps the two capability diamonds in the diagram; the double-arrow above stands in for it.
+
+## Value core — Profit / Risk / Growth → Value
+
+The right-hand cluster is a **value-driver tree**: the firm's **Value** is composed of three drivers — **Profit**, **Risk** and **Growth** — each feeding the central node. Treating **Risk as a value driver** rather than only a cost is the [[strategic-risk-management]] move: risk has an upside (taking it well drives Growth) and a downside (mitigating it well protects Profit). The valuation logic behind "drivers → Value" is the [[real-options|option]] and discounted-value reasoning catalogued from Damodaran ([[2008-01-01-damodaran-2008-strategic-risk-taking-ch11-strategic-risk-management]]); the intangible-to-value linkage echoes Kaplan & Norton's strategy maps ([[2004-04-01-kaplan-norton-2004-strategy-maps-soundview-summary]]).
+
+## Capability engine — explore / exploit + Management
+
+The left cluster is the **engine that produces the drivers**. It is the [[organizational-ambidexterity]] pair plus a governor:
+
+| Node | Role | Drives |
+| --- | --- | --- |
+| **Exploration Capability** | search for new value propositions under high uncertainty | **Growth** |
+| **Exploitation Capability** | run and optimise the existing business under low uncertainty | **Profit** |
+| **Management Capability** | govern the portfolio; allocate, balance, decide | **Risk** (and *steers* both capability diamonds) |
+
+Management as a distinct, governing capability (drawn as a rectangle, not a diamond) is the part of the model that decides how much to bet on explore vs exploit — the C-suite balancing act that [[warner-wager-process-model]] places under `digital-seizing/balancing-digital-portfolios` and that [[organizational-ambidexterity]] frames as "running the whole continuum at once."
+
+## The continuous-learning helix — a 7-phase loop
+
+The helix wrapping the two diamonds is the **compounded-learning loop**: a translation of the [[devops|DevOps infinity loop]] into capability phases, threading the [[dynamic-capabilities]] **sensing → seizing → transforming** triad through the explore/exploit pair. The phases below sit on the coil; **Transfer** sits on the crossover — exactly the position the Strategyzer Business Model Portfolio Map gives it ("4 Explore stages → **Transfer** → 6 Exploit stages", [[2019-05-19-business-model-evolution-portfolio-map]]).
+
+| Phase | Loop | Dynamic-capability cell ([[warner-wager-process-model]]) | DevOps origin ([[2026-06-07-what-is-devops-atlassian]]) |
+| --- | --- | --- | --- |
+| **Scout** | Exploration | `digital-sensing/digital-scouting` | Discover |
+| **Sense** | Exploration | `digital-sensing/scenario-planning` | Plan / sensing |
+| **Seize** | Exploration | `digital-seizing/rapid-prototyping` | Build / Test |
+| **Transfer** | **Crossover** | `digital-seizing/balancing-digital-portfolios` (explore→exploit handoff) | (Strategyzer *Transfer*) |
+| **Deploy** | Exploitation | `digital-seizing/strategic-agility` | Deploy |
+| **Monitor** | Exploitation | `digital-sensing` (operational) | Observe / Operate |
+| **Transform** | Exploitation | `digital-transforming/improving-digital-maturity` | Operate + Continuous feedback |
+
+Read as a cycle: **Scout → Sense → Seize** (explore: discover and validate the new) → **Transfer** (hand the validated learning across) → **Deploy → Monitor → Transform** (exploit: scale and embed it) → feedback back to Scout. The exploration lobe is sensing-heavy; the exploitation lobe is transforming-heavy; the crossover is where compounded learning passes from one capability to the other.
+
+> **Provenance note on ordering.** The diagram's labels carry no sequence arrows — the cycle order above is inferred from the helix topology and the W&W triad logic, not asserted by the diagram. The phase *names* (Scout/Sense/Seize/Transfer/Deploy/Monitor/Transform) are the user's own distillation, not verbatim DevOps or W&W vocabulary.
+
+## Quality modulators
+
+Three "quality" annotations modulate the capability→driver links — they are the *how well* on each edge:
+
+- **Compounded Learning quality** — on the crossover, governing how well exploitation compounds the lessons exploration produces. The faster and cleaner the [[devops|loop]], the more this compounds.
+- **Strategic Risk-Taking quality** — on the Exploration → Growth edge: how well the firm takes option-like bets ([[real-options]], [[two-way-door-decisions]]).
+- **Strategic Risk-Mitigation quality** — on the Management/Profit → Risk edge: how well downside is contained ([[strategic-risk-management]]).
+
+## How it marries the source models
+
+| CMR element | Integrates |
+| --- | --- |
+| Capability / Market / Risk pillars | [[mckinsey-7s-framework]], VRIO, [[porter-five-forces]], DESTEP (per the blueprint) |
+| Explore / Exploit capability diamonds | [[organizational-ambidexterity]] |
+| Sensing / Seizing / Transforming phases | [[dynamic-capabilities]], [[warner-wager-process-model]] |
+| The continuous-learning helix | [[devops]] infinity loop |
+| The Transfer crossover | Strategyzer explore→Transfer→exploit lifecycle ([[2019-05-19-business-model-evolution-portfolio-map]]) |
+| Risk as a value driver | [[strategic-risk-management]], [[real-options]] |
+| Drivers → Value | [[2004-04-01-kaplan-norton-2004-strategy-maps-soundview-summary]], Damodaran valuation |
+
+## Relation to the rest of the wiki
+
+- **It is an applied instance of [[dynamic-capabilities]].** Where [[warner-wager-process-model]] gives the closed vocabulary of microfoundations, CMR arranges them on a *runnable loop* tied to explore/exploit capabilities — the same move [[devops]] makes at delivery cadence.
+- **It operationalises [[organizational-ambidexterity]].** The two diamonds *are* the explore/exploit pair; the helix is the mechanism that keeps both running at once without one starving the other.
+- **It treats [[strategic-risk-management]] as generative.** Risk sits among the value drivers, split into a taking-quality (upside, Growth) and a mitigation-quality (downside, Profit), mirroring Damodaran's "risk is opportunity" thesis.
+
+## Sources
+
+The framework is user-originated (diagram + blueprint in `background-docs/`, local scratch). It is grounded in:
+
+- [[2019-12-19-warner-wager-2019-dynamic-capabilities-digital-transformation]] — the sensing/seizing/transforming triad.
+- [[2020-03-16-explore-exploit-continuum]] and [[2019-05-19-business-model-evolution-portfolio-map]] — the explore/exploit continuum and the Transfer handoff.
+- [[2026-06-07-what-is-devops-atlassian]] — the DevOps infinity loop the helix translates.
+- [[2008-01-01-damodaran-2008-strategic-risk-taking-ch11-strategic-risk-management]] — risk as a two-sided value driver.
+- [[2004-04-01-kaplan-norton-2004-strategy-maps-soundview-summary]] — intangible drivers → value.
+- [[2008-01-01-porter-five-competitive-forces]] and [[2020-07-07-mckinsey-7s-model]] — the legacy frameworks CMR consolidates.
+
+## Debates and supersession
+
+- **The integration is novel, not sourced.** No single wiki source asserts the CMR synthesis as drawn — it is an interpretive bridge across frameworks. The components are each defensible; the *arrangement* is the user's. Confidence is held at 0.72 for that reason, despite the breadth of supporting sources.
+- **The Market pillar is not yet integrated (open design decision).** The blueprint names three pillars — **Capability / Market / Risk** — but the current diagram only realises **Capability** (the explore/exploit engine) and **Risk** (the driver + quality modulators). **Market is absent by intent, not omission** — its placement is still being decided. The leading interpretation: **what the diagram shows so far is the *internal architecture* of the organisation, and Market is an *external force* that sits outside the firm boundary** — not a node inside the engine. Four sub-options are on the table:
+  1. Market as a **fourth value driver** alongside Profit / Risk / Growth.
+  2. Market as an **input into the sensing phases** (Scout / Sense / Monitor).
+  3. Market as a **cross-cutting lens** over the whole loop.
+  4. **Market as an external force / environment** outside the internal architecture — the boundary the firm sense across (the current leading view).
+
+  Options 2 and 4 are complementary, not rival: if Market is the external field, then the **sensing phases are exactly the boundary-spanning organ** through which the internal architecture reaches into it. This is the classic internal/external strategy split the corpus already carries — [[porter-five-forces]] is the **external/industry** layer, [[mckinsey-7s-framework]] the **internal-alignment** layer, and [[warner-wager-process-model]] parks external shocks in `contextual/external-triggers`. Until decided, the diagram's value drivers (Profit / Risk / Growth) should **not** be read as the Market pillar's expression.
+- **Phase ordering is inferred.** If the intended cycle differs from Scout→Sense→Seize→Transfer→Deploy→Monitor→Transform, the helix table needs revising.
+- **Open question.** Is ambidexterity here **structural** (separate explore/exploit diamonds) or **contextual** (the same units switching modes via the helix)? The diagram leans structural; the helix hints contextual. Same unresolved tension flagged on [[organizational-ambidexterity]].

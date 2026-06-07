@@ -8,6 +8,20 @@ Permitted operations: `ingest`, `acquire`, `query`, `lint`, `synthesize`, `refac
 
 ---
 
+## [2026-06-07] synthesize | CMR framework (Capability–Market–Risk) — integrative business-architecture concept from the final diagram
+
+**Trigger.** The user finalised their `background-docs/cmr-framework.excalidraw` diagram ("final design and synthesis") and asked to capture it. This followed an interactive session where the diagram's two capability diamonds (explore/exploit) were wrapped by a helix translating the [[devops]] ∞ loop into dynamic-capability phases — see the query-trace `inspiration/2026-06-07-devops-phases-to-dynamic-capabilities-query-trace.md`. The user relabelled the helix with their own 7-phase vocabulary (Scout / Sense / Seize / Transfer / Deploy / Monitor / Transform).
+
+**Page created (1):**
+
+- [[cmr-framework]] — concept. CMR = **Capability–Market–Risk** (name from the local `cmr-framework-blueprint.html`). Documents the value-driver core (Profit / Risk / Growth → Value), the explore/exploit capability engine + Management governor, the continuous-learning helix as a 7-phase loop mapped to W&W cells + DevOps origins, and the three quality modulators. Confidence 0.72 (user-originated synthesis; components sourced, arrangement novel). source_count 8.
+
+**Typed relationships added:** `uses` → [[organizational-ambidexterity]], [[dynamic-capabilities]], [[warner-wager-process-model]], [[devops]], [[strategic-risk-management]] (all with body wikilinks per the body-twin rule).
+
+**Cross-cutting touches:** `index.md` (added CMR under Strategic management & dynamic capabilities as the integrative synthesis).
+
+**Notes / open items flagged in the page's Debates section:** (1) pillar mismatch — blueprint says Capability/Market/Risk, diagram drivers are Profit/Risk/Growth; (2) helix phase ordering is inferred, not asserted by the diagram; (3) structural-vs-contextual ambidexterity unresolved. The diagram + blueprint live in `background-docs/` (gitignored local scratch), so they are cited as provenance in prose, not as published links.
+
 ## [2026-06-07] ingest | Yves Morieux (BCG) — "Smart Simplicity" / complexity vs complicatedness (Brain Bar 2023 video)
 
 **Trigger.** The video deferred from the DevOps-cluster ingest earlier today. Both transcript paths (youtube-transcript-skill Playwright + yt-dlp fallback) stayed blocked by YouTube **HTTP 429** all session; the **user supplied the transcript** directly, unblocking the ingest. Separate topic from the DevOps cluster (organisational complexity / productivity).
