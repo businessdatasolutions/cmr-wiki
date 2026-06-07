@@ -1,0 +1,724 @@
+{
+  "question": {
+    "original": "The devops framework has an infinite loop of 8 phases: Discover → Plan → Build → Test → Deploy → Operate → Observe → Continuous feedback . Warner and Wäger proposed a process model for building dynamic capabilities for digital transformation . Can you map the phases to the associated dynamic capabilities?",
+    "restated": "Cross-walk each of the 8 DevOps lifecycle phases to the matching capability/cell in Warner & Wäger's dynamic-capabilities-for-digital-transformation process model.",
+    "facets": [
+      "What are the 8 DevOps phases and what does each do?",
+      "What is the W&W process-model vocabulary (sensing/seizing/transforming + renewal + contextual cells)?",
+      "Which W&W capability best matches each DevOps phase (the mapping)?"
+    ],
+    "language": "en"
+  },
+  "params": {
+    "seeds": 12,
+    "hops": 1,
+    "k_rrf": 60,
+    "graph_w": 0.5,
+    "conf_floor": 0.6,
+    "today": "2026-06-07"
+  },
+  "graph_available": true,
+  "candidates": [
+    {
+      "slug": "log",
+      "path": "wiki/log.md",
+      "type": "unknown",
+      "title": "log",
+      "qmd_rank": 5,
+      "qmd_score": 0.44,
+      "graph": [],
+      "stored_confidence": null,
+      "accessed_at": null,
+      "last_confirmed": null,
+      "days_since_access": null,
+      "effective_confidence": null,
+      "rrf_score": 0.015385,
+      "retrieval_reasons": [
+        "qmd rank 5 (score 0.44)"
+      ],
+      "fused_score": 0.9385,
+      "verdict": "ignore",
+      "reason": "wiki changelog, not content",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "sources/2026-06-07-nist-devsecops-reference-model",
+      "path": "wiki/sources/2026-06-07-nist-devsecops-reference-model.md",
+      "type": "source",
+      "title": "Notional Reference Model for DevSecOps for Demonstration of NIST SSDF (Section 3)",
+      "qmd_rank": 1,
+      "qmd_score": 0.9,
+      "graph": [],
+      "stored_confidence": 0.8,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.8,
+      "rrf_score": 0.016393,
+      "retrieval_reasons": [
+        "qmd rank 1 (score 0.90)"
+      ],
+      "fused_score": 0.92,
+      "verdict": "ignore",
+      "reason": "NIST DevSecOps 7-phase security model, not the 8-phase DevOps loop the question names",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/warner-wager-process-model",
+      "path": "wiki/concepts/warner-wager-process-model.md",
+      "type": "concept",
+      "title": "Warner & Wäger (2019) process model for building dynamic capabilities for digital transformation",
+      "qmd_rank": 6,
+      "qmd_score": 0.43,
+      "graph": [],
+      "stored_confidence": 0.9,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-06",
+      "days_since_access": 0,
+      "effective_confidence": 0.9,
+      "rrf_score": 0.015152,
+      "retrieval_reasons": [
+        "qmd rank 6 (score 0.43)"
+      ],
+      "fused_score": 0.8873,
+      "verdict": "use",
+      "reason": "the closed 15-cell W&W vocabulary + bucket definitions (sensing/seizing/transforming/renewal/contextual)",
+      "reason_class": null,
+      "promoted": null
+    },
+    {
+      "slug": "sources/2026-06-07-what-is-devops-atlassian",
+      "path": "wiki/sources/2026-06-07-what-is-devops-atlassian.md",
+      "type": "source",
+      "title": "What is DevOps?",
+      "qmd_rank": 2,
+      "qmd_score": 0.56,
+      "graph": [
+        {
+          "from_seed": "sources/2026-06-07-team-topologies-atlassian",
+          "edge_type": "supports",
+          "via": "team structure is the org-design precondition for the DevOps transformation the overview describes",
+          "hops": 1
+        },
+        {
+          "from_seed": "sources/2026-06-07-calms-framework-atlassian",
+          "edge_type": "supports",
+          "via": "CALMS is the maturity-assessment lens for the DevOps adoption the overview describes",
+          "hops": 1
+        },
+        {
+          "from_seed": "sources/2026-06-07-calms-framework-atlassian",
+          "edge_type": "supports",
+          "via": "CALMS is the assessment framework for the DevOps adoption this article describes",
+          "hops": 1
+        },
+        {
+          "from_seed": "sources/2026-06-07-devops-culture-atlassian",
+          "edge_type": "supports",
+          "via": "expands the 'DevOps culture' section of the overview into a full treatment",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.016129,
+      "retrieval_reasons": [
+        "qmd rank 2 (score 0.56)",
+        "graph: sources/2026-06-07-team-topologies-atlassian --supports--> this (1 hop)",
+        "graph: sources/2026-06-07-calms-framework-atlassian --supports--> this (1 hop)",
+        "graph: sources/2026-06-07-calms-framework-atlassian --supports--> this (1 hop)",
+        "graph: sources/2026-06-07-devops-culture-atlassian --supports--> this (1 hop)"
+      ],
+      "fused_score": 0.8855,
+      "verdict": "use",
+      "reason": "per-phase descriptions (Discover…Continuous feedback) + the source's own dynamic_capabilities tags",
+      "reason_class": null,
+      "promoted": null
+    },
+    {
+      "slug": "sources/2026-06-07-team-topologies-atlassian",
+      "path": "wiki/sources/2026-06-07-team-topologies-atlassian.md",
+      "type": "source",
+      "title": "Team Topologies",
+      "qmd_rank": 3,
+      "qmd_score": 0.46,
+      "graph": [
+        {
+          "from_seed": "sources/2026-06-07-what-is-devops-atlassian",
+          "edge_type": "supports",
+          "via": "team structure is the org-design precondition for the DevOps transformation the overview describes",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.015873,
+      "retrieval_reasons": [
+        "qmd rank 3 (score 0.46)",
+        "graph: sources/2026-06-07-what-is-devops-atlassian --supports--> this (1 hop)"
+      ],
+      "fused_score": 0.8715,
+      "verdict": "ignore",
+      "reason": "team-design framework, not lifecycle phases",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "sources/2026-06-07-calms-framework-atlassian",
+      "path": "wiki/sources/2026-06-07-calms-framework-atlassian.md",
+      "type": "source",
+      "title": "CALMS Framework",
+      "qmd_rank": 4,
+      "qmd_score": 0.45,
+      "graph": [
+        {
+          "from_seed": "sources/2026-06-07-what-is-devops-atlassian",
+          "edge_type": "supports",
+          "via": "CALMS is the maturity-assessment lens for the DevOps adoption the overview describes",
+          "hops": 1
+        },
+        {
+          "from_seed": "sources/2026-06-07-what-is-devops-atlassian",
+          "edge_type": "supports",
+          "via": "CALMS is the assessment framework for the DevOps adoption this article describes",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.015625,
+      "retrieval_reasons": [
+        "qmd rank 4 (score 0.45)",
+        "graph: sources/2026-06-07-what-is-devops-atlassian --supports--> this (1 hop)",
+        "graph: sources/2026-06-07-what-is-devops-atlassian --supports--> this (1 hop)"
+      ],
+      "fused_score": 0.8578,
+      "verdict": "ignore",
+      "reason": "adoption-assessment lenses, not phases",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/devops",
+      "path": "wiki/concepts/devops.md",
+      "type": "concept",
+      "title": "DevOps",
+      "qmd_rank": 8,
+      "qmd_score": 0.41,
+      "graph": [
+        {
+          "from_seed": "concepts/devsecops",
+          "edge_type": "depends-on",
+          "via": "DevSecOps extends DevOps by integrating security into every phase of its lifecycle",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.8,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.8,
+      "rrf_score": 0.014706,
+      "retrieval_reasons": [
+        "qmd rank 8 (score 0.41)",
+        "graph: concepts/devsecops --depends-on--> this (1 hop)"
+      ],
+      "fused_score": 0.8253,
+      "verdict": "use",
+      "reason": "top-relevance; supplies the 8-phase infinity loop + phase meanings and the explicit DevOps→dynamic-capabilities microfoundation mapping",
+      "reason_class": null,
+      "promoted": null
+    },
+    {
+      "slug": "sources/2019-12-19-warner-wager-2019-dynamic-capabilities-digital-transformation",
+      "path": "wiki/sources/2019-12-19-warner-wager-2019-dynamic-capabilities-digital-transformation.md",
+      "type": "source",
+      "title": "Building dynamic capabilities for digital transformation: An ongoing process of strategic renewal",
+      "qmd_rank": 11,
+      "qmd_score": 0.39,
+      "graph": [],
+      "stored_confidence": 0.9,
+      "accessed_at": "2026-06-06",
+      "last_confirmed": "2026-06-06",
+      "days_since_access": 1,
+      "effective_confidence": 0.9,
+      "rrf_score": 0.014085,
+      "retrieval_reasons": [
+        "qmd rank 11 (score 0.39)"
+      ],
+      "fused_score": 0.8248,
+      "verdict": "ignore",
+      "reason": "warner-wager-process-model concept reproduces this paper's process model + vocabulary",
+      "reason_class": "redundant",
+      "promoted": null
+    },
+    {
+      "slug": "sources/2024-02-02-bcg-yves-morieux-complexity-complicatedness",
+      "path": "wiki/sources/2024-02-02-bcg-yves-morieux-complexity-complicatedness.md",
+      "type": "source",
+      "title": "BCG's Yves Morieux: Organisations Respond to Complexity with Complicatedness",
+      "qmd_rank": 7,
+      "qmd_score": 0.42,
+      "graph": [],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.014925,
+      "retrieval_reasons": [
+        "qmd rank 7 (score 0.42)"
+      ],
+      "fused_score": 0.8194,
+      "verdict": "ignore",
+      "reason": "organisational complexity talk, unrelated to the phase↔capability mapping",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/devsecops",
+      "path": "wiki/concepts/devsecops.md",
+      "type": "concept",
+      "title": "DevSecOps",
+      "qmd_rank": 9,
+      "qmd_score": 0.41,
+      "graph": [
+        {
+          "from_seed": "concepts/devops",
+          "edge_type": "depends-on",
+          "via": "DevSecOps extends DevOps by integrating security into every phase of its lifecycle",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.8,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.8,
+      "rrf_score": 0.014493,
+      "retrieval_reasons": [
+        "qmd rank 9 (score 0.41)",
+        "graph: concepts/devops --depends-on--> this (1 hop)"
+      ],
+      "fused_score": 0.8134,
+      "verdict": "ignore",
+      "reason": "security extension of DevOps; question is the DevOps loop",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/smart-simplicity",
+      "path": "wiki/concepts/smart-simplicity.md",
+      "type": "concept",
+      "title": "Smart Simplicity (complexity vs complicatedness)",
+      "qmd_rank": 10,
+      "qmd_score": 0.41,
+      "graph": [],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.014286,
+      "retrieval_reasons": [
+        "qmd rank 10 (score 0.41)"
+      ],
+      "fused_score": 0.7843,
+      "verdict": "ignore",
+      "reason": "complexity-vs-complicatedness, not phases/capabilities",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "sources/2026-06-07-devops-culture-atlassian",
+      "path": "wiki/sources/2026-06-07-devops-culture-atlassian.md",
+      "type": "source",
+      "title": "What is DevOps Culture?",
+      "qmd_rank": 12,
+      "qmd_score": 0.38,
+      "graph": [
+        {
+          "from_seed": "sources/2026-06-07-what-is-devops-atlassian",
+          "edge_type": "supports",
+          "via": "expands the 'DevOps culture' section of the overview into a full treatment",
+          "hops": 1
+        },
+        {
+          "from_seed": "sources/2026-06-07-what-is-devops-atlassian",
+          "edge_type": "supports",
+          "via": "the overview article; the culture article expands its 'DevOps culture' section",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.013889,
+      "retrieval_reasons": [
+        "qmd rank 12 (score 0.38)",
+        "graph: sources/2026-06-07-what-is-devops-atlassian --supports--> this (1 hop)",
+        "graph: sources/2026-06-07-what-is-devops-atlassian --supports--> this (1 hop)"
+      ],
+      "fused_score": 0.7625,
+      "verdict": "ignore",
+      "reason": "DevOps culture, not the lifecycle phases",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "artifacts/nist-devsecops-reference-model",
+      "path": "wiki/artifacts/nist-devsecops-reference-model.md",
+      "type": "artifact",
+      "title": "Notional Reference Model for DevSecOps for Demonstration of NIST SSDF (Fig 3.1)",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "sources/2026-06-07-nist-devsecops-reference-model",
+          "edge_type": "part-of",
+          "via": null,
+          "hops": 1
+        },
+        {
+          "from_seed": "concepts/devsecops",
+          "edge_type": "supports",
+          "via": null,
+          "hops": 1
+        }
+      ],
+      "stored_confidence": null,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": null,
+      "rrf_score": 0.008197,
+      "retrieval_reasons": [
+        "graph: sources/2026-06-07-nist-devsecops-reference-model --part-of--> this (1 hop)",
+        "graph: concepts/devsecops --supports--> this (1 hop)"
+      ],
+      "fused_score": 0.5,
+      "verdict": "ignore",
+      "reason": "NIST 7-phase reference model, not the 8-phase DevOps loop",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "entities/Atlassian",
+      "path": "wiki/entities/Atlassian.md",
+      "type": "entity",
+      "title": "Atlassian",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "sources/2026-06-07-what-is-devops-atlassian",
+          "edge_type": "authored-by",
+          "via": null,
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.8,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.8,
+      "rrf_score": 0.007937,
+      "retrieval_reasons": [
+        "graph: sources/2026-06-07-what-is-devops-atlassian --authored-by--> this (1 hop)"
+      ],
+      "fused_score": 0.4454,
+      "verdict": "ignore",
+      "reason": "publisher entity card; facet needs phase/capability claims",
+      "reason_class": "wrong-granularity",
+      "promoted": null
+    },
+    {
+      "slug": "sources/2023-03-10-redhat-what-is-devsecops",
+      "path": "wiki/sources/2023-03-10-redhat-what-is-devsecops.md",
+      "type": "source",
+      "title": "What is DevSecOps?",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "sources/2026-06-07-nist-devsecops-reference-model",
+          "edge_type": "supports",
+          "via": "formalises the shift-left DevSecOps lifecycle that the vendor explainers describe into a NIST-SSDF-aligned reference model",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.008065,
+      "retrieval_reasons": [
+        "graph: sources/2026-06-07-nist-devsecops-reference-model --supports--> this (1 hop)"
+      ],
+      "fused_score": 0.4428,
+      "verdict": "ignore",
+      "reason": "DevSecOps definition, not the DevOps loop",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/dynamic-capabilities",
+      "path": "wiki/concepts/dynamic-capabilities.md",
+      "type": "concept",
+      "title": "Dynamic capabilities",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "concepts/warner-wager-process-model",
+          "edge_type": "instance-of",
+          "via": "operationalises Teece's sensing/seizing/transforming clusters at the microfoundation level, specialised to digital contexts",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.85,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.85,
+      "rrf_score": 0.007692,
+      "retrieval_reasons": [
+        "graph: concepts/warner-wager-process-model --instance-of--> this (1 hop)"
+      ],
+      "fused_score": 0.4411,
+      "verdict": "use",
+      "reason": "the sensing→seizing→transforming triad definitions the mapping rests on",
+      "reason_class": null,
+      "promoted": null
+    },
+    {
+      "slug": "entities/Ian-Buchanan",
+      "path": "wiki/entities/Ian-Buchanan.md",
+      "type": "entity",
+      "title": "Ian Buchanan",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "sources/2026-06-07-team-topologies-atlassian",
+          "edge_type": "authored-by",
+          "via": null,
+          "hops": 1
+        },
+        {
+          "from_seed": "sources/2026-06-07-calms-framework-atlassian",
+          "edge_type": "authored-by",
+          "via": null,
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.8,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.8,
+      "rrf_score": 0.007813,
+      "retrieval_reasons": [
+        "graph: sources/2026-06-07-team-topologies-atlassian --authored-by--> this (1 hop)",
+        "graph: sources/2026-06-07-calms-framework-atlassian --authored-by--> this (1 hop)"
+      ],
+      "fused_score": 0.4385,
+      "verdict": "ignore",
+      "reason": "author entity card; not a phase/capability claim",
+      "reason_class": "wrong-granularity",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/organizational-culture",
+      "path": "wiki/concepts/organizational-culture.md",
+      "type": "concept",
+      "title": "Organizational culture",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "sources/2024-02-02-bcg-yves-morieux-complexity-complicatedness",
+          "edge_type": "supports",
+          "via": "Morieux's engagement + cooperation thesis is a productivity-side complement to the culture cluster",
+          "hops": 1
+        },
+        {
+          "from_seed": "concepts/smart-simplicity",
+          "edge_type": "supports",
+          "via": "cooperation + engagement are the people-side levers Morieux argues drive organisational productivity",
+          "hops": 1
+        },
+        {
+          "from_seed": "sources/2026-06-07-devops-culture-atlassian",
+          "edge_type": "supports",
+          "via": "DevOps culture is a domain-specific instance of organisational culture (shared responsibility, blameless learning)",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.85,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.85,
+      "rrf_score": 0.007576,
+      "retrieval_reasons": [
+        "graph: sources/2024-02-02-bcg-yves-morieux-complexity-complicatedness --supports--> this (1 hop)",
+        "graph: concepts/smart-simplicity --supports--> this (1 hop)",
+        "graph: sources/2026-06-07-devops-culture-atlassian --supports--> this (1 hop)"
+      ],
+      "fused_score": 0.4344,
+      "verdict": "ignore",
+      "reason": "culture cluster, not the phase mapping",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/calms-framework",
+      "path": "wiki/concepts/calms-framework.md",
+      "type": "concept",
+      "title": "CALMS framework",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "concepts/devops",
+          "edge_type": "part-of",
+          "via": "CALMS is the framework for assessing DevOps adoption readiness and measuring transformation progress",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.007463,
+      "retrieval_reasons": [
+        "graph: concepts/devops --part-of--> this (1 hop)"
+      ],
+      "fused_score": 0.4097,
+      "verdict": "ignore",
+      "reason": "graph-only; assessment lenses, not phases",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/dora-metrics",
+      "path": "wiki/concepts/dora-metrics.md",
+      "type": "concept",
+      "title": "DORA metrics",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "concepts/devops",
+          "edge_type": "uses",
+          "via": "DevOps performance is measured by the four DORA metrics",
+          "hops": 1
+        },
+        {
+          "from_seed": "concepts/devops",
+          "edge_type": "part-of",
+          "via": "the DORA metrics are the standard way to measure DevOps software-delivery performance",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.78,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.78,
+      "rrf_score": 0.007353,
+      "retrieval_reasons": [
+        "graph: concepts/devops --uses--> this (1 hop)",
+        "graph: concepts/devops --part-of--> this (1 hop)"
+      ],
+      "fused_score": 0.4091,
+      "verdict": "ignore",
+      "reason": "graph-only; delivery metrics, not phase↔capability",
+      "reason_class": "off-facet",
+      "promoted": null
+    },
+    {
+      "slug": "concepts/team-topologies",
+      "path": "wiki/concepts/team-topologies.md",
+      "type": "concept",
+      "title": "Team Topologies",
+      "qmd_rank": null,
+      "qmd_score": null,
+      "graph": [
+        {
+          "from_seed": "concepts/devops",
+          "edge_type": "part-of",
+          "via": "Team Topologies is the team-design model for organising a DevOps transformation",
+          "hops": 1
+        }
+      ],
+      "stored_confidence": 0.75,
+      "accessed_at": "2026-06-07",
+      "last_confirmed": "2026-06-07",
+      "days_since_access": 0,
+      "effective_confidence": 0.75,
+      "rrf_score": 0.007246,
+      "retrieval_reasons": [
+        "graph: concepts/devops --part-of--> this (1 hop)"
+      ],
+      "fused_score": 0.3978,
+      "verdict": "ignore",
+      "reason": "graph-only; team design, not phases",
+      "reason_class": "off-facet",
+      "promoted": null
+    }
+  ],
+  "expansions": [],
+  "answer_map": [
+    {
+      "anchor": "W1",
+      "claim": "the 8-phase infinity loop + phases are an instance of dynamic-capabilities microfoundations (rapid-prototyping / redesigning-structures / improving-maturity)",
+      "pages": [
+        "concepts/devops"
+      ],
+      "span": "## The DevOps lifecycle (infinity loop) + ## Relation to the rest of the wiki"
+    },
+    {
+      "anchor": "W2",
+      "claim": "what each DevOps phase does (Discover…Continuous feedback) + the source's dynamic_capabilities tags",
+      "pages": [
+        "sources/2026-06-07-what-is-devops-atlassian"
+      ],
+      "span": "## Results (WHAT) + ## Dynamic-capabilities reading"
+    },
+    {
+      "anchor": "W3",
+      "claim": "the W&W closed 15-cell vocabulary and bucket meanings; model replaces rigid 3–5yr plans with continuous sensing/seizing",
+      "pages": [
+        "concepts/warner-wager-process-model"
+      ],
+      "span": "## The closed vocabulary + ## What each bucket does"
+    },
+    {
+      "anchor": "W4",
+      "claim": "sensing = scan/identify opportunities & threats; seizing = act on them; transforming = make change durable at scale",
+      "pages": [
+        "concepts/dynamic-capabilities"
+      ],
+      "span": "# Dynamic capabilities (intro, sensing/seizing/transforming)"
+    }
+  ],
+  "answer": "## Mapping the DevOps 8-phase loop to Warner & Wäger's dynamic-capabilities process model\n\n**Two framing points first.** The DevOps \"infinity loop\" is a *software-delivery* cycle, whereas Warner & Wäger (W&W) is a *firm-level* process model for building dynamic capabilities for digital transformation — the **sensing → seizing → transforming** triad plus contextual factors and strategic-renewal outcomes [W3][W4]. So this is a **cross-walk by analogy, not a 1:1 identity**. And the wiki itself tags DevOps only at the *cluster* grain — `digital-seizing/rapid-prototyping`, `digital-transforming/redesigning-internal-structures`, `digital-transforming/improving-digital-maturity` [W1][W2] — **not** phase-by-phase; the per-phase rows below are a reasoned extension of those tags, anchored to each phase's meaning [W1][W2] and each W&W cell's definition [W3].\n\nThe triad in one line each: **sensing** = scan/interpret the environment to spot opportunities and threats; **seizing** = act on what was sensed fast enough to capture it; **transforming** = make the change durable at organisational scale [W4].\n\n| DevOps phase | What it does [W1][W2] | W&W capability — cell [W3] |\n|---|---|---|\n| **Discover** | workshop & prioritise ideas against strategy and customer impact | **Digital sensing** — `digital-sensing/digital-scouting` (+ scenario-planning) |\n| **Plan** | agile breakdown into prioritised increments | **Digital sensing → seizing** hinge — `digital-sensing/digital-scenario-planning` |\n| **Build** | write code under version control | **Digital seizing** — `digital-seizing/rapid-prototyping` |\n| **Test** | CI + automated tests | **Digital seizing** — `digital-seizing/rapid-prototyping` (fast validation) |\n| **Deploy** | CD / feature-flag release | **Digital seizing** — `digital-seizing/strategic-agility` (capture the opportunity before the window closes) |\n| **Operate** | run & maintain services/infra | **Digital transforming** — `digital-transforming/improving-digital-maturity` (+ `redesigning-internal-structures`) |\n| **Observe** | monitor, detect issues | **Digital sensing** (operational) — signals fed back into the loop |\n| **Continuous feedback** | evaluate releases, fold in customer feedback | the **iterative re-trigger** — `digital-seizing/strategic-agility` + `contextual/internal-enablers` (fast decision-making) |\n\n**At the macro level:** the **left lobe** (Discover → Plan → Build → Test) is predominantly **sensing + seizing**; the **right lobe** (Deploy → Operate → Observe) is **seizing + transforming**; and **Continuous feedback** is the iterative re-sensing W&W stresses — the model explicitly *replaces rigid 3–5-year plans with continuous sensing/seizing* [W3], which is exactly what the DevOps loop operationalises at delivery cadence [W1]. The wiki already states the cluster-level version of this: DevOps is \"a concrete instance of dynamic-capabilities microfoundations — rapid-prototyping (CI/CD), redesigning-internal-structures (team topologies), improving-digital-maturity\" [W1].\n\n**Caveat / gap.** No wiki source performs this phase-to-capability mapping directly; it is synthesised from the DevOps lifecycle pages [W1][W2] and the W&W vocabulary pages [W3][W4] — treat it as an interpretive bridge. Both anchors are lightly sourced: the DevOps lifecycle is Atlassian vendor material [W1][W2] and the W&W model rests on a single paper [W3].",
+  "generated_at": "2026-06-07T07:28:03.629Z"
+}
