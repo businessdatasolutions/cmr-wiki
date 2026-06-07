@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CMR Multi-Agent System Blueprint — AI-Native Strategic Analysis Pipeline</title>
+<style>
+  :root {
+    --c-bg: #fdfdfc;
+    --c-fg: #1c1c1c;
+    --c-muted: #6a6a6a;
+    --c-rule: #e5e5e2;
+    --c-accent: #1f4ed8;
+    --c-test-bg: #fff8db;
+    --c-test-border: #d6c34a;
+    --c-gate-bg: #1e1e1e;
+    --c-gate-fg: #e0e0e0;
+    --c-gate-accent: #6ee7b7;
+    --c-phase0: #6b7280;
+    --c-phase1: #2563eb;
+    --c-phase2: #059669;
+    --c-phase3: #7c3aed;
+    --c-phase4: #ea580c;
+    --c-phase5: #0891b2;
+    --c-phase6: #be185d;
+    --c-phase7: #4338ca;
+    --c-phase8: #b45309;
+    --c-warn-bg: #fef3c7;
+    --c-warn-border: #f59e0b;
+    --c-verify-bg: #eef2ff;
+    --c-verify-border: #6366f1;
+  }
+  html { box-sizing: border-box; }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: var(--c-fg);
+    background: var(--c-bg);
+    line-height: 1.55;
+    max-width: 1080px;
+    margin: 2rem auto;
+    padding: 0 1.25rem 6rem;
+    font-size: 15.5px;
+  }
+  h1, h2, h3, h4 { line-height: 1.25; font-weight: 650; letter-spacing: -0.01em; }
+  h1 { font-size: 2rem; margin: 0 0 0.25rem; }
+  h2 { font-size: 1.5rem; margin: 2.5rem 0 0.5rem; padding-left: 0.75rem; border-left: 5px solid var(--c-rule); }
+  h3 { font-size: 1.1rem; margin: 1.75rem 0 0.5rem; }
+  h4 { font-size: 1rem; margin: 1rem 0 0.4rem; color: var(--c-muted); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
+  p { margin: 0.6rem 0; }
+  code, pre, kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+  code { background: #f1f1ee; padding: 1px 5px; border-radius: 3px; font-size: 0.92em; }
+  pre { background: #f6f6f3; border: 1px solid var(--c-rule); padding: 0.85rem 1rem; border-radius: 6px; overflow-x: auto; font-size: 0.86em; line-height: 1.45; }
+  pre code { background: transparent; padding: 0; }
+  a { color: var(--c-accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  header.doc-header { border-bottom: 1px solid var(--c-rule); padding-bottom: 1rem; margin-bottom: 2rem; }
+  header.doc-header .meta { color: var(--c-muted); font-size: 0.92em; }
+  nav.toc { background: #faf9f6; border: 1px solid var(--c-rule); border-radius: 6px; padding: 0.85rem 1.25rem; margin: 1.5rem 0; }
+  nav.toc h4 { margin-top: 0; }
+  nav.toc ol { margin: 0.4rem 0 0; padding-left: 1.4rem; }
+  nav.toc li { margin: 0.18rem 0; }
+  table { border-collapse: collapse; width: 100%; margin: 0.75rem 0; font-size: 0.93em; }
+  th, td { border: 1px solid var(--c-rule); padding: 0.55rem 0.7rem; text-align: left; vertical-align: top; }
+  th { background: #f5f5f1; font-weight: 600; }
+  tr:nth-child(even) td { background: #fcfcfa; }
+  .phase { margin-top: 3rem; padding-top: 0.5rem; }
+  .phase-0 h2 { border-left-color: var(--c-phase0); }
+  .phase-1 h2 { border-left-color: var(--c-phase1); }
+  .phase-2 h2 { border-left-color: var(--c-phase2); }
+  .phase-3 h2 { border-left-color: var(--c-phase3); }
+  .phase-4 h2 { border-left-color: var(--c-phase4); }
+  .phase-5 h2 { border-left-color: var(--c-phase5); }
+  .phase-6 h2 { border-left-color: var(--c-phase6); }
+  .phase-7 h2 { border-left-color: var(--c-phase7); }
+  .phase-8 h2 { border-left-color: var(--c-phase8); }
+  .task { margin: 1.5rem 0 1.75rem; padding-left: 0.25rem; }
+  .badges { margin: 0.2rem 0 0.6rem; }
+  .badge { display: inline-block; font-size: 0.74em; font-weight: 600; padding: 2px 8px; border-radius: 999px; margin-right: 0.35rem; border: 1px solid; letter-spacing: 0.03em; text-transform: uppercase; vertical-align: 1px; }
+  .badge.parallel { background: #ecfdf5; color: #047857; border-color: #6ee7b7; }
+  .badge.sequential { background: #f3f4f6; color: #374151; border-color: #d1d5db; }
+  .badge.depends { background: #eff6ff; color: #1e40af; border-color: #93c5fd; }
+  .badge.optional { background: #fef3c7; color: #92400e; border-color: #fcd34d; }
+  .badge.warn { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+  /* CMR pillar badges (mirror the badge system; named for the strategic pillar) */
+  .badge.risk { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+  .badge.cap { background: #eff6ff; color: #1e40af; border-color: #93c5fd; }
+  .badge.market { background: #ecfdf5; color: #047857; border-color: #6ee7b7; }
+  .tests { background: var(--c-test-bg); border: 1px solid var(--c-test-border); border-radius: 6px; padding: 0.7rem 1rem 0.85rem; margin: 0.6rem 0 0.9rem; }
+  .tests h4 { color: #7a5b00; margin-top: 0.1rem; }
+  .tests ul { margin: 0.3rem 0 0; padding-left: 1.3rem; }
+  .tests code { background: #fff3b8; }
+  .gate { background: var(--c-gate-bg); color: var(--c-gate-fg); border-radius: 6px; padding: 0.85rem 1.1rem; margin: 0.8rem 0 0.5rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.86em; line-height: 1.55; }
+  .gate h4 { color: var(--c-gate-accent); margin-top: 0; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85em; }
+  .gate .prompt::before { content: "$ "; color: #888; }
+  .gate .prompt { display: block; white-space: pre-wrap; }
+  .gate .comment { color: #8d8d8d; }
+  .warn-box { background: var(--c-warn-bg); border: 1px solid var(--c-warn-border); border-left-width: 4px; border-radius: 6px; padding: 0.65rem 0.9rem; margin: 0.8rem 0; }
+  .verify-box { background: var(--c-verify-bg); border: 1px solid var(--c-verify-border); border-left-width: 4px; border-radius: 6px; padding: 0.65rem 0.9rem; margin: 0.8rem 0; }
+  .verify-box strong { color: #3730a3; }
+  .checkpoint { background: #ecfdf5; border: 1px solid #6ee7b7; border-left-width: 4px; border-radius: 6px; padding: 0.7rem 1rem; margin: 1.2rem 0 0.5rem; font-weight: 600; }
+  .extend { background: #f0fdfa; border: 1px solid #5eead4; border-left-width: 4px; border-radius: 6px; padding: 0.65rem 0.9rem; margin: 0.8rem 0; }
+  .extend h4 { color: #0f766e; margin: 0 0 0.3rem; }
+  .tryit { background: #eff6ff; border: 1px solid #93c5fd; border-left-width: 4px; border-radius: 6px; padding: 0.75rem 1rem 0.85rem; margin: 1rem 0; }
+  .tryit h4 { color: #1e40af; margin: 0 0 0.35rem; text-transform: none; letter-spacing: 0; font-size: 0.95rem; }
+  .back-to-top { display: block; margin-top: 1rem; font-size: 0.85em; color: var(--c-muted); }
+  .subtasks { padding-left: 1.3rem; margin: 0.4rem 0 0.6rem; }
+  .subtasks li { margin: 0.15rem 0; }
+  .steps { padding-left: 1.4rem; margin: 0.5rem 0 0.6rem; }
+  .steps > li { margin: 0.55rem 0; }
+  figure.diagram { margin: 1.2rem 0; border: 1px solid var(--c-rule); border-radius: 8px; background: #faf9f6; padding: 1rem 1rem 0.6rem; }
+  figure.diagram svg { display: block; width: 100%; max-width: 560px; height: auto; margin: 0 auto; }
+  figure.diagram figcaption { color: var(--c-muted); font-size: 0.85em; margin-top: 0.6rem; text-align: center; }
+  .legend { display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; justify-content: center; font-size: 0.8em; color: var(--c-muted); margin: 0.2rem 0 0.6rem; }
+  .legend span::before { content: ""; display: inline-block; width: 0.7em; height: 0.7em; border-radius: 50%; margin-right: 0.35em; vertical-align: -1px; }
+  .legend .pre::before { background: #4338ca; }
+  .legend .core::before { background: #0891b2; }
+  .legend .syn::before { background: #7c3aed; }
+  hr { border: 0; border-top: 1px solid var(--c-rule); margin: 2rem 0; }
+  @media print {
+    body { max-width: none; margin: 0; font-size: 11pt; }
+    nav.toc { page-break-after: always; }
+    .phase { page-break-before: always; }
+    .gate { background: #f6f6f3; color: #1c1c1c; border: 1px solid #c0c0c0; }
+    .gate h4 { color: #1c1c1c; }
+    h2, h3, h4 { page-break-after: avoid; }
+    pre, table, .tests, .gate, figure.diagram { page-break-inside: avoid; }
+    a { color: #1c1c1c; text-decoration: underline; }
+  }
+</style>
+</head>
+<body>
+
+<header class="doc-header" id="top">
+  <h1>CMR Multi-Agent System Blueprint</h1>
+  <p class="meta">
+    An <strong>AI-native re-architecture of legacy management-consulting frameworks</strong> — McKinsey&nbsp;7S, VRIO,
+    Porter's Five Forces, and DESTEP — collapsed into a single non-overlapping
+    <strong>Capability–Market–Risk (CMR) matrix</strong> and executed as a high-performance multi-agent pipeline.<br>
+    Intended consumer: an <strong>orchestration engineer</strong> wiring an LLM agent graph (ADK&nbsp;/ LangGraph&nbsp;/ CrewAI).
+    Secondary consumer: a human strategy reviewer.<br>
+    The thesis: overlapping legacy frameworks waste tokens and create analytical conflict when sharded across agents;
+    CMR gives each agent a <strong>clean data boundary</strong> and forces a deterministic financial spine to run first.<br>
+    <span style="font-variant: small-caps;">Document class</span> Strategic Architect ·
+    <span style="font-variant: small-caps;">System state</span> Distributed Graph ·
+    <span style="font-variant: small-caps;">Context engine</span> <code>gemini-2.5-flash</code> ·
+    <span style="font-variant: small-caps;">Version</span> v1.0 — AI-Native ·
+    <span style="font-variant: small-caps;">Reference target</span> <code>image_ff6549.png</code> (legacy SWOT graph)
+  </p>
+</header>
+
+<div class="verify-box">
+  <strong>Read this first — why CMR exists.</strong> Standard business frameworks (7S, VRIO, Porter 5F, DESTEP) have vast
+  conceptual overlaps: the "O" in VRIO overlaps with 7S <em>Systems &amp; Structure</em>; <em>Staff &amp; Skills</em> overlap with
+  HR capability analysis. Route those overlapping frameworks to independent agents and you get <strong>token redundancy and
+  analytical conflict</strong> — two agents reaching contradictory conclusions about the same underlying fact. CMR fixes this by
+  consolidating every duplicate concept into exactly <strong>6 distinct, non-overlapping dimensions</strong> across 3 pillars
+  (Capabilities, Market, Risk), and by making an upstream <strong>Financiële Analist</strong> compute the quantitative spine
+  (concentration ratios, runway, margins) <em>before</em> any qualitative agent runs — so downstream agents are
+  <strong>barred from guessing</strong> core metrics. The result is precise data boundaries, deterministic grounding, and a
+  graph that self-heals via a Red&nbsp;Team &rarr; router refinement loop before any human review.
+</div>
+
+<nav class="toc" aria-label="Table of contents">
+  <h4>Contents</h4>
+  <ol>
+    <li><a href="#concept">Chapter 1 — Concept: the CMR matrix</a></li>
+    <li><a href="#topology">Chapter 2 — Agent graph topology</a></li>
+    <li><a href="#matrix">Chapter 3 — The 6-dimension matrix spec</a></li>
+    <li><a href="#prompts">Chapter 4 — Production agent prompt sheets</a></li>
+    <li><a href="#migration">Chapter 5 — Rebuilding / migration plan</a></li>
+  </ol>
+</nav>
+
+<section id="concept" class="phase phase-5">
+  <h2>Chapter 1 — Concept: the CMR matrix</h2>
+  <p>Analysing why overlapping legacy management-consulting frameworks fail LLM agents, and how CMR corrects them.</p>
+
+  <h4>The legacy framework overlap problem</h4>
+  <p>Standard business frameworks (7S, VRIO, Porter 5F) carry large conceptual overlaps. When routed to independent agents,
+  this creates extreme token redundancy and analytical conflict — the same fact is re-derived, and sometimes contradicted,
+  across separate evaluation routines.</p>
+
+  <h4>The AI-native solution: the CMR matrix</h4>
+  <p>The <strong>Capability–Market–Risk (CMR)</strong> framework consolidates duplicate business concepts into exactly
+  <strong>6 distinct, non-overlapping dimensions</strong> divided across 3 pillars. Each dimension is cleanly partitioned,
+  giving agents precise data boundaries and eliminating cross-agent semantic collisions.</p>
+
+  <h4>Deterministic financial grounding</h4>
+  <p>Under CMR, qualitative agents are barred from guessing core metrics. The upstream <strong>Financiële Analist</strong>
+  calculates concentration ratios and financial runways first, enforcing strict mathematical limits on all downstream logic.</p>
+
+  <h3>Taxonomical mapping: legacy &rarr; CMR</h3>
+  <p>How the new architecture collapses standard framework layers cleanly, with <strong>zero semantic overlap</strong>.</p>
+  <table>
+    <thead>
+      <tr><th>#</th><th>CMR dimension</th><th>Pillar</th><th>Replaces legacy element</th><th>Agent analytical boundary &amp; focus</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td><strong>Capital &amp; Fragility</strong></td>
+        <td><span class="badge risk">Risk Layer</span></td>
+        <td>Financial KPIs, VRIO (Value)</td>
+        <td>Cash-flow sustainability, client/supplier HHI concentration risk, and capital runtime margins.</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td><strong>Human Capital Profile</strong></td>
+        <td><span class="badge cap">Capabilities</span></td>
+        <td>McKinsey 7S (Staff, Skills)</td>
+        <td>Diversity entropy indices, seniority curves, retention patterns, and key functional skill concentrations.</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td><strong>Organizational Alignment</strong></td>
+        <td><span class="badge cap">Capabilities</span></td>
+        <td>McKinsey 7S (Systems, Structure), VRIO (Organization)</td>
+        <td>Hierarchy bottlenecks, structural rigidity, operational silos, and software/system integrations.</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td><strong>Value Defense (Moat)</strong></td>
+        <td><span class="badge risk">Risk Layer</span></td>
+        <td>VRIO (Rarity, Inimitability), Porter (Threat of Entrants &amp; Substitutes)</td>
+        <td>Structural defensibility, switching barriers, operational moats, and intellectual-property value.</td>
+      </tr>
+      <tr>
+        <td>05</td>
+        <td><strong>Market Friction</strong></td>
+        <td><span class="badge market">Market</span></td>
+        <td>Porter's Five Forces (Buyers, Suppliers, Rivals)</td>
+        <td>Competitor pressure and buyer/supplier leverage, strictly backed by concentration stats.</td>
+      </tr>
+      <tr>
+        <td>06</td>
+        <td><strong>Macro Environment</strong></td>
+        <td><span class="badge market">Market</span></td>
+        <td>DESTEP (Global, Tech, Eco)</td>
+        <td>Geopolitical shifts, global economic challenges, regulatory adjustments, fast-moving tech change.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<section id="topology" class="phase phase-3">
+  <h2>Chapter 2 — Agent graph topology</h2>
+  <p>The execution graph: a deterministic financial spine feeds two parallel analysis axes, which converge through a moat
+  synthesis node and a join barrier into a Red&nbsp;Team stress test gated by a self-healing router.</p>
+
+  <figure class="diagram">
+    <svg viewBox="0 0 500 720" xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-label="CMR agent graph: Onderzoeker to Financiële Analist, fanning out to Internal and External Axis Agents, converging at the Moat Specialist, a JoinNode, the Red Team, a router gate with refinement loops, and finally Strateeg.">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#6b7280" />
+        </marker>
+        <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626" />
+        </marker>
+      </defs>
+
+      <!-- START -->
+      <g transform="translate(185, 20)">
+        <rect width="130" height="35" rx="6" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5" />
+        <text x="65" y="22" fill="#374151" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">1. ONDERZOEKER</text>
+      </g>
+      <line x1="250" y1="55" x2="250" y2="85" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+      <!-- FINANCIËLE ANALIST -->
+      <g transform="translate(150, 85)">
+        <rect width="200" height="45" rx="8" fill="#eef2ff" stroke="#4338ca" stroke-width="2" />
+        <text x="100" y="22" fill="#3730a3" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="800" text-anchor="middle">FINANCIËLE ANALIST</text>
+        <text x="100" y="35" fill="#6366f1" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8" font-weight="600" text-anchor="middle">Quantitative Spine Provisioner</text>
+      </g>
+      <line x1="250" y1="130" x2="250" y2="155" stroke="#6b7280" stroke-width="1.5" />
+      <line x1="250" y1="155" x2="110" y2="155" stroke="#6b7280" stroke-width="1.5" />
+      <line x1="250" y1="155" x2="390" y2="155" stroke="#6b7280" stroke-width="1.5" />
+      <line x1="110" y1="155" x2="110" y2="185" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+      <line x1="390" y1="155" x2="390" y2="185" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+      <!-- INTERNAL AXIS -->
+      <g transform="translate(20, 185)">
+        <rect width="180" height="55" rx="8" fill="#ecfeff" stroke="#0891b2" stroke-width="1.5" />
+        <text x="90" y="22" fill="#155e75" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">INTERNAL AXIS AGENT</text>
+        <text x="90" y="35" fill="#0891b2" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8" font-weight="500" text-anchor="middle">Dimensions 1, 2, 3 (Capabilities)</text>
+        <text x="90" y="45" fill="#64748b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7" font-weight="500" text-anchor="middle">Replaces: 7S &amp; VRIO</text>
+      </g>
+
+      <!-- EXTERNAL AXIS -->
+      <g transform="translate(300, 185)">
+        <rect width="180" height="55" rx="8" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" />
+        <text x="90" y="22" fill="#065f46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">EXTERNAL AXIS AGENT</text>
+        <text x="90" y="35" fill="#059669" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8" font-weight="500" text-anchor="middle">Dimensions 5, 6 (Market/Macro)</text>
+        <text x="90" y="45" fill="#64748b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7" font-weight="500" text-anchor="middle">Replaces: Porter &amp; DESTEP</text>
+      </g>
+
+      <!-- axes to moat -->
+      <line x1="110" y1="240" x2="110" y2="280" stroke="#6b7280" stroke-width="1.5" />
+      <line x1="390" y1="240" x2="390" y2="280" stroke="#6b7280" stroke-width="1.5" />
+      <line x1="110" y1="280" x2="250" y2="280" stroke="#6b7280" stroke-width="1.5" />
+      <line x1="390" y1="280" x2="250" y2="280" stroke="#6b7280" stroke-width="1.5" />
+      <line x1="250" y1="280" x2="250" y2="310" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+      <!-- MOAT SPECIALIST -->
+      <g transform="translate(150, 310)">
+        <rect width="200" height="50" rx="8" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5" />
+        <text x="100" y="20" fill="#6b21a8" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">MOAT SPECIALIST AGENT</text>
+        <text x="100" y="32" fill="#7c3aed" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8" font-weight="500" text-anchor="middle">Dimension 4 (Value Defense / Moat)</text>
+        <text x="100" y="42" fill="#64748b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7" font-weight="500" text-anchor="middle">Evaluates competitive defenses</text>
+      </g>
+      <line x1="250" y1="360" x2="250" y2="390" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+      <!-- JOIN NODE -->
+      <g transform="translate(175, 390)">
+        <rect width="150" height="30" rx="4" fill="#ecfdf5" stroke="#059669" stroke-width="1.5" />
+        <text x="75" y="19" fill="#065f46" font-family="ui-sans-serif, system-ui, sans-serif" font-size="9" font-weight="700" text-anchor="middle">cmr_merge (JoinNode)</text>
+      </g>
+      <line x1="250" y1="420" x2="250" y2="450" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+      <!-- RED TEAM -->
+      <g transform="translate(140, 450)">
+        <rect width="220" height="45" rx="8" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5" />
+        <text x="110" y="22" fill="#991b1b" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="700" text-anchor="middle">RED TEAM · CMR</text>
+        <text x="110" y="34" fill="#ef4444" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8" font-weight="500" text-anchor="middle">Matrix-wide Consistency &amp; Stress Tester</text>
+      </g>
+      <line x1="250" y1="495" x2="250" y2="525" stroke="#6b7280" stroke-width="1.5" marker-end="url(#arrow)" />
+
+      <!-- ROUTER / decision gate (local coords inside translated group) -->
+      <g transform="translate(195, 525)">
+        <path d="M 55 0 L 110 25 L 55 50 L 0 25 Z" fill="#fef3c7" stroke="#d97706" stroke-width="1.5" />
+        <text x="55" y="22" fill="#92400e" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">router</text>
+        <text x="55" y="33" fill="#b45309" font-family="ui-sans-serif, system-ui, sans-serif" font-size="6.5" font-weight="500" text-anchor="middle">Sufficiency Gate</text>
+      </g>
+
+      <!-- refinement feedback loops -->
+      <path d="M 195 550 L 10 550 L 10 212 L 20 212" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-red)" />
+      <text x="35" y="542" fill="#dc2626" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7" font-weight="600">refine_internal (if gaps)</text>
+      <path d="M 305 550 L 490 550 L 490 212 L 480 212" fill="none" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-red)" />
+      <text x="380" y="542" fill="#dc2626" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7" font-weight="600">refine_external (if gaps)</text>
+
+      <!-- sufficient path -->
+      <line x1="250" y1="575" x2="250" y2="605" stroke="#059669" stroke-width="1.5" marker-end="url(#arrow)" />
+      <text x="256" y="593" fill="#047857" font-family="ui-sans-serif, system-ui, sans-serif" font-size="8" font-weight="700">sufficient</text>
+
+      <!-- STRATEEG -->
+      <g transform="translate(185, 605)">
+        <rect width="130" height="35" rx="6" fill="#f3f4f6" stroke="#6b7280" stroke-width="1.5" />
+        <text x="65" y="21" fill="#374151" font-family="ui-sans-serif, system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">STRATEEG</text>
+        <text x="65" y="30" fill="#6b7280" font-family="ui-sans-serif, system-ui, sans-serif" font-size="7" font-weight="500" text-anchor="middle">Consolidated Decisions</text>
+      </g>
+    </svg>
+    <div class="legend">
+      <span class="pre">Pre-processing spine</span>
+      <span class="core">Core analysis axes</span>
+      <span class="syn">Synthesis layer</span>
+    </div>
+    <figcaption>CMR agent graph topology. The amber diamond is the sufficiency gate: on <code>sufficient</code> it advances to
+    Strateeg; otherwise it fires <code>refine_internal</code> / <code>refine_external</code> back to the analysis axes.</figcaption>
+  </figure>
+
+  <h3>Node specifications</h3>
+  <p>Each node's data contract — inputs, calculated outputs, and the architectural advantage it secures.</p>
+  <table>
+    <thead>
+      <tr><th>Node</th><th>Stage</th><th>Inputs</th><th>Outputs</th><th>Architectural advantage</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Financiële Analist</strong></td>
+        <td><span class="badge depends">Pre-processing</span></td>
+        <td>Ledger files, accounts payable/receivable matrices, HR demographic logs, cap tables</td>
+        <td><code>runway_months</code>, <code>ebitda_margin</code>, <code>solvency_ratio</code>, <code>customer_hhi</code>, <code>supplier_hhi</code>, <code>top_3_client_revenue_pct</code>, <code>workforce_diversity_entropy</code>, <code>turnover_rate</code></td>
+        <td>Forces quantitative baselines to execute first. Downstream agents must query these outputs, ending qualitative hallucination and inconsistent metrics across analysis files.</td>
+      </tr>
+      <tr>
+        <td><strong>Internal Axis Agent</strong></td>
+        <td><span class="badge cap">Core axis</span></td>
+        <td>Onderzoeker textual corpus + qualitative HR &amp; balance-sheet metrics</td>
+        <td><code>capital_and_fragility</code>, <code>human_capital_profile</code>, <code>organizational_alignment</code> (JSON)</td>
+        <td>Consolidates McKinsey&nbsp;7S and VRIO variables under one agent context, removing structural-mapping confusion between separate evaluation routines.</td>
+      </tr>
+      <tr>
+        <td><strong>External Axis Agent</strong></td>
+        <td><span class="badge market">Core axis</span></td>
+        <td>Geopolitical files, competitor market analysis, global industrial-sector indicators</td>
+        <td><code>market_friction</code> metrics, <code>macro_environment</code> trend tracker</td>
+        <td>Grounds buyer/supplier bargaining metrics directly in the quantitative concentration metrics, forcing the model to reflect true customer dependencies.</td>
+      </tr>
+      <tr>
+        <td><strong>Moat Specialist Agent</strong></td>
+        <td><span class="badge sequential">Synthesis</span></td>
+        <td>Internal Axis outputs + External Axis outputs</td>
+        <td><code>value_defense_moat</code> (switching costs, IP indexes, entry-difficulty thresholds)</td>
+        <td>Confines defense-parameter evaluation to one dedicated container, ensuring competitive advantages are judged through a true external lens.</td>
+      </tr>
+      <tr>
+        <td><strong>cmr_merge (JoinNode)</strong></td>
+        <td><span class="badge parallel">Join barrier</span></td>
+        <td>Async stream outputs from Internal, External, and Moat agents</td>
+        <td>Fully populated unified <code>ContextState</code></td>
+        <td>Deterministic synchronization barrier — prevents downstream agents from executing on partially populated data.</td>
+      </tr>
+      <tr>
+        <td><strong>Red Team · CMR</strong></td>
+        <td><span class="badge warn">Validation</span></td>
+        <td>Completed unified <code>ContextState</code> payload</td>
+        <td>Stress-test log: mapping gaps, logical-mismatch flags, adversarial vulnerability alerts</td>
+        <td>Safety validation layer — e.g. flags a mismatch if "High Moat" is claimed while "Supplier Concentration" is a point of failure.</td>
+      </tr>
+      <tr>
+        <td><strong>Router Gate</strong></td>
+        <td><span class="badge optional">Decision</span></td>
+        <td>Stress-test outcomes log from the Red Team node</td>
+        <td>Boolean: <code>sufficient</code> &rarr; Strateeg, else <code>refine_internal</code> / <code>refine_external</code></td>
+        <td>Gives the graph self-healing properties — forces iterative prompt corrections dynamically before human review.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<section id="matrix" class="phase phase-2">
+  <h2>Chapter 3 — The 6-dimension matrix spec</h2>
+  <p>A non-redundant state architecture designed specifically for semantic partitioning in LLM systems. Each dimension owns a
+  bounded slice of the analysis and maps to exactly one pillar.</p>
+
+  <table>
+    <thead>
+      <tr><th>#</th><th>Dimension</th><th>Pillar</th><th>Analytical scope</th><th>Replaces</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td><strong>Capital &amp; Fragility</strong></td>
+        <td><span class="badge risk">Risk Layer</span></td>
+        <td>Calculates structural cash boundaries, margins, and concentration risks. Evaluates how much of the firm's capital depends on a narrow customer/supplier portfolio.</td>
+        <td>Financial KPIs &amp; VRIO (Value)</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td><strong>Human Capital Profile</strong></td>
+        <td><span class="badge cap">Capabilities</span></td>
+        <td>Diagnoses team capabilities — retention rates, seniority splits, and functional diversity (Gini/entropy metrics) — to highlight organizational bottlenecks.</td>
+        <td>McKinsey 7S (Staff, Skills)</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td><strong>Organizational Alignment</strong></td>
+        <td><span class="badge cap">Capabilities</span></td>
+        <td>Audits workflows, cross-department coordination barriers, communication silos, hierarchy efficiency, and how software tooling scales with the workforce.</td>
+        <td>7S (Systems, Structure) &amp; VRIO (Org)</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td><strong>Value Defense (Moat)</strong></td>
+        <td><span class="badge risk">Risk Layer</span></td>
+        <td>Reviews competitive advantages, defense barriers, customer switching costs, unique IP boundaries, and how hard the core solution is to replicate.</td>
+        <td>VRIO (Inimitability) &amp; Porter Entrants</td>
+      </tr>
+      <tr>
+        <td>05</td>
+        <td><strong>Market Friction</strong></td>
+        <td><span class="badge market">Market</span></td>
+        <td>Gauges relative bargaining power — combines client/supplier concentration ratios from the financial audit with market-share competition levels.</td>
+        <td>Porter's Five Forces (Buyers, Suppliers, Rivalry)</td>
+      </tr>
+      <tr>
+        <td>06</td>
+        <td><strong>Macro Environment</strong></td>
+        <td><span class="badge market">Market</span></td>
+        <td>Analyses external forces outside the firm's control — technological transitions, geopolitical friction, and regulatory/compliance dynamics.</td>
+        <td>DESTEP (Socio-Tech-Economic-Gov)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Unified <code>ContextState</code> schema (state-engine payload)</h3>
+  <p>The single shared state object every node reads from and writes to. The <code>quantitative_spine</code> is populated first and
+  is immutable to qualitative agents; each agent writes only its own sub-tree of <code>cmr_matrix</code>.</p>
+  <pre>{
+  "metadata": {
+    "company_name": "string",
+    "industry": "string"
+  },
+  "quantitative_spine": {
+    "runway_months": 0,
+    "ebitda_margin": 0,
+    "solvency_ratio": 0,
+    "customer_hhi": 0,
+    "supplier_hhi": 0,
+    "top_3_client_revenue_pct": 0,
+    "workforce_diversity_entropy": 0,
+    "seniority_distribution": {},
+    "turnover_rate": 0
+  },
+  "cmr_matrix": {
+    "capital_and_fragility": {
+      "cash_flow_health_assessment": "string",
+      "concentration_vulnerabilities": [],
+      "financial_runway_risk_level": "LOW|MED|HIGH"
+    },
+    "human_capital_profile": {
+      "diversity_gaps": [],
+      "seniority_bottlenecks": [],
+      "talent_retention_risk": "string",
+      "core_competencies_identified": []
+    },
+    "organizational_alignment": {
+      "operational_bottlenecks": [],
+      "structural_rigidity_critique": "string",
+      "software_tooling_enablement": "string"
+    },
+    "value_defense_moat": {
+      "intellectual_property_status": "string",
+      "customer_switching_costs": "string",
+      "barriers_to_entry_score": "1-10",
+      "imitation_threats": []
+    },
+    "market_friction": {
+      "buyer_bargaining_power_analysis": "string",
+      "supplier_bargaining_power_analysis": "string",
+      "competitive_rivalry_intensity": "string"
+    },
+    "macro_environment": {
+      "geopolitical_factors": [],
+      "economic_headwinds_tailwinds": [],
+      "technological_shifts": []
+    }
+  }
+}</pre>
+  <p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<section id="prompts" class="phase phase-1">
+  <h2>Chapter 4 — Production agent prompt sheets</h2>
+  <p>Drop these system prompts directly into your orchestration engine to configure each agent node. Each prompt encodes its
+  scope boundaries (negative constraints), grounding inputs, per-dimension evaluation protocol, and strict JSON output schema.</p>
+
+  <h3>Internal Axis Agent</h3>
+  <p><strong>Focus areas:</strong> Capital &amp; Fragility, Human Capital Profile, Organizational Alignment.</p>
+  <pre>### ROLE AND PURPOSE
+You are the "Internal Axis Agent," an elite corporate operations, organizational design, and financial health expert within a multi-agent strategic decision framework. Your sole objective is to analyze the internal realities, operational capabilities, and underlying fragility of the target enterprise.
+
+You synthesize historical elements of McKinsey 7S (Staff, Skills, Systems, Structure) and VRIO (Value, Organization) into a modern data-driven capability assessment.
+
+---
+
+### SCOPE BOUNDARIES &amp; STRICT NEGATIVE CONSTRAINTS
+To prevent token waste and framework overlap, you must adhere to the following execution boundaries:
+1. DO NOT evaluate external market dynamics, competitors, industry trends, or macro-environmental forces (e.g., do not perform Porter’s 5 Forces or DESTEP analysis).
+2. DO NOT evaluate market-facing defensibility or intellectual property mimicry; that is the exclusive domain of the Moat Specialist Agent.
+3. Your analysis must strictly cover exactly three dimensions: "Capital &amp; Fragility", "Human Capital Profile", and "Organizational Alignment".
+4. If the source data does not contain explicit evidence for a specific dimension, flag it as an "unresolved data gap" rather than hallucinating or speculating.
+
+---
+
+### INPUTS &amp; DATA GROUNDING
+You will receive two primary data feeds:
+1. `{{quantitative_spine}}`: A structured JSON containing verified mathematical calculations (financial metrics, concentration ratios, HR demographic indices) generated by the upstream Financiële Analist node. You MUST anchor your qualitative assessments to these objective metrics.
+2. `{{onderzoeker_context}}`: Qualitative text transcripts, interviews, corporate documentation, and operational summaries.
+
+---
+
+### EVALUATION PROTOCOL BY DIMENSION
+
+#### 1. Capital &amp; Fragility
+- Objective: Evaluate the financial runway, cash flow sustainability, and systemic financial risks of the business.
+- Grounding: Look at `runway_months`, `ebitda_margin`, and `solvency_ratio`. Cross-reference these with concentration metrics (`top_3_client_revenue_pct`, `customer_hhi`, `supplier_hhi`).
+- Execution: Translate these metrics into an operational narrative. For example, if a high customer HHI is paired with a short financial runway, emphasize the extreme structural fragility and immediate risk of a single client churning.
+
+#### 2. Human Capital Profile
+- Objective: Assess the talent pool, skill concentration, retention risks, and structural demographic health of the workforce.
+- Grounding: Analyze `workforce_diversity_entropy`, `seniority_distribution`, and `turnover_rate`.
+- Execution: Evaluate whether the current mix of skills and demographic diversity supports sustainable operations or creates single-point-of-failure risks (e.g., excessive centralization of core competencies among highly senior, low-diversity legacy staff).
+
+#### 3. Organizational Alignment
+- Objective: Diagnose the firm's execution engine—its structural rigidities, workflow friction, and how well software or tooling enables the workforce.
+- Grounding: Read qualitative feedback in `{{onderzoeker_context}}` regarding internal processes, communication silos, hierarchy, and system integrations.
+- Execution: Identify structural bottlenecks and process inefficiencies. Explicitly evaluate whether the company’s internal architecture is actively scaling with its workforce or suffocating execution.
+
+---
+
+### OUTPUT FORMAT
+You must return your analysis strictly as a JSON object matching the following schema. Do not include markdown code block backticks (```json) or conversational preamble in your final response—return ONLY the raw JSON string.
+
+{
+  "capital_and_fragility": {
+    "cash_flow_health_assessment": "Detailed qualitative breakdown of runway and margin health based on quantitative constraints.",
+    "concentration_vulnerabilities": ["Bullet point list of explicit vulnerabilities driven by client/supplier concentration metrics."],
+    "financial_runway_risk_level": "LOW|MED|HIGH"
+  },
+  "human_capital_profile": {
+    "diversity_gaps": ["Bullet point list identifying structural, cultural, or demographic diversity gaps based on entropy metrics."],
+    "seniority_bottlenecks": ["Analysis of risk concentrations around seniority distributions and knowledge siloing."],
+    "talent_retention_risk": "Detailed assessment of turnover rates and team stability.",
+    "core_competencies_identified": ["List of validated, highly functioning internal core competencies."]
+  },
+  "organizational_alignment": {
+    "operational_bottlenecks": ["List of specific process friction points or communication silos discovered."],
+    "structural_rigidity_critique": "A sharp critique of whether the hierarchy and structure hinder or help execution velocity.",
+    "software_tooling_enablement": "Assessment of how effectively tools and systems support the workforce."
+  }
+}</pre>
+
+  <h3>External Axis Agent</h3>
+  <p><strong>Focus areas:</strong> Market Friction, Macro Environment.</p>
+  <pre>### ROLE AND PURPOSE
+You are the "External Axis Agent," an industrial economist, market pricing, and global trends specialist within our multi-agent strategic framework. Your objective is to audit the external forces, industry pressures, and global factors acting upon the business ecosystem.
+
+You consolidate historical elements of Porter's 5 Forces and DESTEP macro environments into a clean, modern market profile.
+
+---
+
+### SCOPE BOUNDARIES &amp; STRICT NEGATIVE CONSTRAINTS
+1. DO NOT evaluate internal business systems, employee structures, culture, or capital structure.
+2. DO NOT evaluate individual corporate product defenses or barriers to entry—this resides exclusively with the Moat Specialist Agent.
+3. Focus strictly on exactly two dimensions: "Market Friction" and "Macro Environment".
+4. Ground buyer and supplier power analysis exclusively in the metrics compiled by the Financiële Analist.
+
+---
+
+### INPUTS &amp; GROUNDING
+1. `{{quantitative_spine}}`: Direct access to `customer_hhi`, `supplier_hhi`, and `top_3_client_revenue_pct` calculations.
+2. `{{onderzoeker_context}}`: Relevant market indexes, competitor research reports, industry news, and geopolitical developments.
+
+---
+
+### EVALUATION PROTOCOL BY DIMENSION
+
+#### 1. Market Friction
+- Objective: Assess competitor rivalry intensity and raw bargaining power interfaces.
+- Grounding: You must link buyer/supplier power directly to concentration indexes. If HHI metrics indicate client concentration is above 2000, buyer power is mathematically HIGH. You cannot claim low buyer power if concentrations are top-heavy.
+- Execution: Detail the industry competitive landscape, price elasticity factors, and immediate input friction.
+
+#### 2. Macro Environment
+- Objective: Capture non-discretionary trends shaping the future market.
+- Execution: Explicitly categorize external events into Geopolitical factors, economic headwinds/tailwinds, and technological transitions (replacing legacy DESTEP parameters). Do not analyze internal responses; only describe external structural environments.
+
+---
+
+### OUTPUT FORMAT
+Provide raw JSON matching this structure:
+
+{
+  "market_friction": {
+    "buyer_bargaining_power_analysis": "Contextual narrative of buyer power grounded in concentration indices.",
+    "supplier_bargaining_power_analysis": "Analysis of supplier leverage based on HHI metrics.",
+    "competitive_rivalry_intensity": "Overview of external competitors, price wars, and market pricing behaviors."
+  },
+  "macro_environment": {
+    "geopolitical_factors": ["Bullet points outlining active geopolitical challenges."],
+    "economic_headwinds_tailwinds": ["Key macroeconomic elements like inflation, regional growth rates, interest pressure."],
+    "technological_shifts": ["External engineering or technical trends threatening current legacy operations."]
+  }
+}</pre>
+
+  <h3>Moat Specialist Agent</h3>
+  <p><strong>Focus area:</strong> Value Defense (Moat). Runs downstream of both axis agents.</p>
+  <pre>### ROLE AND PURPOSE
+You are the "Moat Specialist Agent," a competitive strategy, defense barrier, and market defensive specialist within our multi-agent framework. Your single responsibility is to synthesize internal competencies with external realities to evaluate "Value Defense (Moat)."
+
+You bridge VRIO (Inimitability) and Porter’s Five Forces (Threat of New Entrants/Substitutes).
+
+---
+
+### SCOPE BOUNDARIES &amp; NEGATIVE CONSTRAINTS
+1. Your sole area of analysis is Dimension 4: "Value Defense (Moat)". Do not analyze macro trends or internal organizational processes.
+2. You run as a downstream listener to both the Internal and External Agents. You must not run until they have populated their respective dimensions.
+
+---
+
+### INPUTS &amp; GROUNDING
+1. `{{internal_capabilities}}`: Handled by the Internal Axis Agent (core competencies, human capital).
+2. `{{external_dynamics}}`: Handled by the External Axis Agent (competitor landscape, technological macro trends).
+
+---
+
+### EVALUATION PROTOCOL
+
+#### 1. Value Defense (Moat)
+- Objective: Measure the difficulty of replication.
+- Execution: Synthesize internal capabilities against external threats. If the Internal agent identifies a critical engineering talent base but the External agent shows a severe macro technical shift, analyze if the talent base is agile enough to preserve the "Moat".
+- Metrics: Qualify switching barriers, intellectual property depth, customer reliance profiles, and barriers to market entry.
+
+---
+
+### OUTPUT FORMAT
+Provide raw JSON matching this structure:
+
+{
+  "value_defense_moat": {
+    "intellectual_property_status": "Summary of proprietary assets and legal moats.",
+    "customer_switching_costs": "Assessment of lock-in depth and ease of customer migration to competitors.",
+    "barriers_to_entry_score": "Score from 1 to 10 evaluating startup entry complexity.",
+    "imitation_threats": ["Bullet points detailing immediate risk vectors of competitor replication."]
+  }
+}</pre>
+  <p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+<section id="migration" class="phase phase-6">
+  <h2>Chapter 5 — Rebuilding / migration plan</h2>
+  <p>An actionable, step-by-step checklist to migrate a LangGraph / CrewAI workflow from the legacy SWOT design in
+  <code>image_ff6549.png</code> to the CMR architecture.</p>
+
+  <ol class="steps">
+    <li>
+      <strong>Data-layer integration (upstream spine).</strong> Modify the orchestration code directly below the
+      <code>Onderzoeker</code> node. Establish the <code>Financiële Analist</code> as a <em>blocking</em> code-execution node that
+      outputs its calculated variables to the main thread's state store. Downstream agents are structurally blocked until those
+      variables exist.
+    </li>
+    <li>
+      <strong>Parallel axis consolidation.</strong> Decommission the four parallel legacy nodes (<code>Analist · 7S</code>,
+      <code>Analist · VRIO</code>, <code>Analist · Porter 5F</code>, <code>Analist · DESTEP</code>). Spin up exactly two clean
+      concurrent threads — the <strong>Internal Axis Agent</strong> and the <strong>External Axis Agent</strong> — wired to the
+      system prompts in Chapter 4.
+    </li>
+    <li>
+      <strong>The transition layer (Moat node).</strong> Create the <code>Moat Specialist Agent</code> container. Wire its inputs
+      as a downstream listener to the state updates of both axis agents. Once they write their JSON blocks, activate it to
+      calculate Dimension 4.
+    </li>
+    <li>
+      <strong>Synthesize the Red Team evaluator node.</strong> Transition the legacy <code>Red Team · SWOT</code> node into a
+      <code>Red Team · CMR</code> evaluator. Instruct its prompting logic to systematically cross-compare the 6 state fields
+      (e.g. matching low diversity in <em>Human Capital</em> against the competitive shifts in <em>Macro Environment</em> to detect
+      internal talent fragility).
+    </li>
+  </ol>
+
+  <div class="checkpoint">
+    ✅ Migration complete when: the financial spine blocks all qualitative agents, exactly two axis agents run in parallel, the
+    Moat node listens on both, and the Red Team → router loop gates Strateeg on a <code>sufficient</code> verdict.
+  </div>
+  <p class="back-to-top"><a href="#top">↑ Back to top</a></p>
+</section>
+
+</body>
+</html>
