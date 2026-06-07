@@ -45,6 +45,16 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 - [[2019-06-26-measuring-company-culture-with-ai]] — **video** — the human+ML NLP method explainer (1:20; the Dairy Queen "fudge" example). Confidence 0.7.
 - [[2019-06-26-the-9-key-values-for-company-culture]] — **video** — the Big 9 explainer + definition of culture (0:39). Confidence 0.7.
 
+### DevOps & DevSecOps
+
+- [[2026-06-07-what-is-devops-atlassian]] — **article** — Atlassian. The DevOps overview: practices + tools + culture; the 8-phase infinity-loop lifecycle; CI/CD, IaC, microservices; DORA elite-vs-low gap (208× / 106×). Confidence 0.75.
+- [[2026-06-07-devops-culture-atlassian]] — **article** — Tom Hall (Atlassian). Shared responsibility, "you build it you run it", blameless retrospectives, MTTR>MTBF, cargo-cult DevOps. Confidence 0.75.
+- [[2026-06-07-calms-framework-atlassian]] — **article** — Ian Buchanan (Atlassian). CALMS = Culture, Automation, Lean, Measurement, Sharing (coined by Jez Humble). Confidence 0.75.
+- [[2026-06-07-team-topologies-atlassian]] — **article** — Ian Buchanan (Atlassian). The four team types (stream-aligned / platform / complicated-subsystem / enabling) + DORA metrics. Confidence 0.75.
+- [[2023-03-10-redhat-what-is-devsecops]] — **article** — Red Hat. DevSecOps = security as shared responsibility across the lifecycle; shift-left/shift-right; software-supply-chain; containers. Confidence 0.75.
+- [[2026-06-07-gitlab-what-is-devsecops]] — **article** — GitLab. DevSecOps four requirements (automation / collaboration / policy guardrails / visibility); SAST/DAST; 2022 survey. Confidence 0.75.
+- [[2026-06-07-nist-devsecops-reference-model]] — **report** — NIST NCCoE (SSDF). The notional DevSecOps reference model: 7-phase lifecycle + 5 dimensions incl. Zero Trust. Section 3 only (partial). Confidence 0.8.
+
 ## Concepts
 
 ### Strategic management & dynamic capabilities
@@ -75,6 +85,14 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 - [[cultural-archetypes]] — Performance-orientation / people / customer — the three-factor structure the Big 9 reduce to; only performance-orientation robustly predicts firm financials. 1 source (peer-reviewed).
 - [[measuring-culture-with-nlp]] — The CultureX human-in-the-loop NLP method for measuring culture from Glassdoor reviews (20,000+ terms → 80+ values). 6 sources.
 
+### DevOps & DevSecOps
+
+- [[devops]] — Practices + tools + cultural philosophy integrating Dev and Ops; the infinity-loop lifecycle; CI/CD, IaC, microservices; "structure before tools". 4 sources.
+- [[devsecops]] — DevOps with security shifted-left into every lifecycle phase as a shared responsibility; SAST/DAST; software-supply-chain; NIST SSDF reference model. 4 sources.
+- [[calms-framework]] — Culture / Automation / Lean / Measurement / Sharing — the DevOps adoption-maturity assessment framework (coined by Jez Humble). 1 source.
+- [[team-topologies]] — Four fundamental team types (stream-aligned / platform / complicated-subsystem / enabling) organised around cognitive load. 1 source.
+- [[dora-metrics]] — The four software-delivery metrics: deployment frequency, lead time, change failure rate, time to restore service. 3 sources.
+
 ## Entities
 
 - [[Aswath-Damodaran]] — Professor of Finance, NYU Stern. Author of the *Strategic Risk Taking* (2008) book providing the wiki's anchor on risk-management framework.
@@ -84,6 +102,8 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 - [[Charles-Sull]] — CultureX co-founder; co-author of the Culture 500 research.
 - [[CultureX]] — Culture-analytics firm behind the Culture 500's NLP measure; the research organisation underpinning the culture cluster (5 sources).
 - [[MIT-Sloan-Management-Review]] — Management-research publisher; the connective venue/channel for 6 of the 7 culture sources.
+- [[Atlassian]] — Enterprise-software vendor (Jira/Confluence/Bitbucket); the connective publisher of the DevOps cluster (4 sources).
+- [[Ian-Buchanan]] — Atlassian Principal Solutions Engineer; author of the CALMS and Team Topologies explainers.
 
 ## Threads
 
@@ -112,3 +132,7 @@ _No syntheses yet._
 - [[oreilly-2024-archetype-factor-loadings]] — Table 2: varimax factor analysis loading the 9 Big-9 values onto the 3 archetypes (performance / people / customer), n = 309.
 - [[oreilly-2024-archetype-performance-regressions]] — Table 4: OLS regressions of 5 firm-performance measures on the 3 archetypes; performance-orientation positive across the board, people archetype null.
 - [[sull-2021-ten-culture-elements]] — The 10 employee-rated culture elements (SHAP), Respect #1 (~18×); the employee-experience counterpart to the firm-performance archetypes.
+
+### DevSecOps (NIST SSDF)
+
+- [[nist-devsecops-reference-model]] — NIST NCCoE notional DevSecOps reference model: 7-phase lifecycle (Plan→Operate) + 5 dimensions (lifecycle / continuous improvement / continuous feedback / CI-CD / Zero Trust). From Fig 3.1.

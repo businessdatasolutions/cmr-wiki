@@ -8,6 +8,38 @@ Permitted operations: `ingest`, `acquire`, `query`, `lint`, `synthesize`, `refac
 
 ---
 
+## [2026-06-07] ingest | DevOps / DevSecOps cluster: 4 Atlassian articles + Red Hat + GitLab + NIST NCCoE reference model
+
+**Trigger.** User: "ingest [a YouTube URL] and all new material in raw." The YouTube video (Yves Morieux / BCG, organizational complexity) is a **separate topic** and is **deferred** (YouTube rate-limited yt-dlp with HTTP 429 after the day's heavy use — see Follow-up). The new `raw/articles/` + `raw/papers/` material formed a coherent **DevOps / DevSecOps cluster** (7 sources), processed here.
+
+**Pages created (15 total):**
+
+- 7 source pages:
+  - [[2026-06-07-what-is-devops-atlassian]] — `kind: article`, Atlassian overview, confidence 0.75
+  - [[2026-06-07-devops-culture-atlassian]] — `kind: article`, Tom Hall (Atlassian), confidence 0.75
+  - [[2026-06-07-calms-framework-atlassian]] — `kind: article`, Ian Buchanan (Atlassian), confidence 0.75
+  - [[2026-06-07-team-topologies-atlassian]] — `kind: article`, Ian Buchanan (Atlassian), confidence 0.75
+  - [[2023-03-10-redhat-what-is-devsecops]] — `kind: article`, Red Hat, confidence 0.75
+  - [[2026-06-07-gitlab-what-is-devsecops]] — `kind: article`, GitLab, confidence 0.75
+  - [[2026-06-07-nist-devsecops-reference-model]] — `kind: report`, NIST NCCoE (SSDF), **Section 3 only / partial**, confidence 0.8
+- 5 concept pages: [[devops]] (4 sources), [[devsecops]] (4), [[calms-framework]] (1), [[team-topologies]] (1), [[dora-metrics]] (3)
+- 1 artifact page: [[nist-devsecops-reference-model]] (Fig 3.1 — 7-phase lifecycle + 5 dimensions incl. Zero Trust)
+- 2 entity pages: [[Atlassian]] (org, connective publisher of 4), [[Ian-Buchanan]] (person, 2 sources)
+
+**W&W `dynamic_capabilities:` tagging APPLIED** (unlike the culture/risk clusters, DevOps **is** squarely in the digital-transformation lens): `digital-transforming/redesigning-internal-structures` (team topologies, dissolving silos), `digital-transforming/improving-digital-maturity` (DevOps/DevSecOps maturity, CALMS, NIST SSDF), `strategic-renewal/culture` (DevOps culture, CALMS-Culture), `digital-seizing/rapid-prototyping` (CI/CD automation).
+
+**Identity calls.** The unattributed `What is DevSecOps_.pdf` identified as **Red Hat** (the "shared responsibility throughout the entire IT lifecycle" wording + page format + Red Hat product refs; stated pub date 2023-03-10). The NIST PDF is **Section 3** of the NCCoE "Software Supply Chain & DevOps Security Practices" project doc (SSDF / SP 800-218) — a partial ingest, flagged.
+
+**Dates.** The Atlassian + GitLab pages are undated living documents → `date_published` set to the **access date (2026-06-07)** with an honest-scoping note in each `length:`. Red Hat carries a stated date (2023-03-10).
+
+**Neighbour-source scan (step 5).** Within-cluster `supports` edges: the 3 framework/culture Atlassian sources → the DevOps overview; Red Hat ↔ GitLab DevSecOps (complementary definitions); NIST → Red Hat (formalises the shift-left lifecycle into an SSDF reference model). Cross-cluster: [[devops-culture-atlassian]] `supports` → [[organizational-culture]] (DevOps culture = domain-specific org-culture). Concept edges: [[team-topologies]] `supports` → [[mckinsey-7s-framework]] (Structure); [[devsecops]] `depends-on` → [[devops]].
+
+**Author-promotion rule.** Promoted Atlassian (connective publisher, 4 sources — MIT SMR/Strategyzer precedent) and Ian Buchanan (author on 2). Dangling (single-source): Tom Hall, Red Hat, GitLab, NIST NCCoE, Jez Humble, Skelton & Pais, Gene Kim.
+
+**Honest scoping.** All vendor explainers carry a commercial frame (confidence capped 0.75); the primary empirical authority for DevOps (**DORA / *Accelerate***, Forsgren-Humble-Kim) and the primary books (*Team Topologies*; *The DevOps Handbook*) are **not** in the wiki — flagged across the concept §Debates as the path to raise confidence. NIST ingest is partial (Section 3).
+
+**Follow-up flagged.** (1) **Deferred: the Yves Morieux / BCG "Smart Simplicity" video** (Brain Bar 2023, org complexity vs complicatedness) — yt-dlp hit HTTP 429; retry when the rate limit clears. (2) Acquire DORA/*Accelerate*, *Team Topologies* (Skelton & Pais), *The DevOps Handbook* primaries; the rest of the NCCoE SSDF document; a platform-engineering source (flagged by Red Hat/GitLab).
+
 ## [2026-06-07] ingest | Organizational-culture cluster: O'Reilly-Cao-Sull 2024 paper + 4 MIT SMR Culture 500 videos + 2 Sull articles
 
 **Trigger.** User: "ingest [4 YouTube URLs] and all the newly added raw material." The four videos + two new article PDFs (`raw/articles/`) + one new paper PDF (`raw/papers/1-s2.0-S0148296324002844-main.pdf`) turned out to be a single coherent **organizational-culture cluster**, all from the MIT SMR / CultureX **Culture 500** research programme and connected by **Donald Sull**.
