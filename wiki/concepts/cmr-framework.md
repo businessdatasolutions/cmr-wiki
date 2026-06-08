@@ -62,7 +62,7 @@ flowchart LR
   EXPL --> GROW
   EXPT --> PROF
   MGMT -- "Strategic Risk-Taking quality" --> RISK
-  MGMT -- "Strategic Risk-Mitigation quality" --> RISK
+  MGMT -- "Tactical Risk-Mitigation quality" --> RISK
   MGMT -.->|steers| EXPL
   MGMT -.->|steers| EXPT
   GROW --> VAL
@@ -116,7 +116,7 @@ Three "quality" annotations modulate the model — they are the *how well*:
 
 - **Compounded Learning quality** — on the **helix crossover**, governing how well learning compounds between exploration and exploitation. The faster and cleaner the [[devops|loop]], the more it compounds.
 - **Strategic Risk-Taking quality** — *strategic* risk, owned by **Management Capability**: how well the firm takes option-like upside bets ([[real-options]], [[two-way-door-decisions]]).
-- **Strategic Risk-Mitigation quality** — *tactical* risk, owned by **Management Capability**: how well downside is contained ([[strategic-risk-management]]).
+- **Tactical Risk-Mitigation quality** — *tactical* risk, owned by **Management Capability**: how well downside is contained ([[strategic-risk-management]]).
 
 **Both risk qualities are dimensions of Management Capability's governance of the Risk driver** — Management manages *strategic* risk (taking) and *tactical* risk (mitigation) as one job, not two separate owners. They modulate the Management → Risk edge; neither belongs to Exploration's Growth path. (An earlier draft mis-attributed risk-taking to the Exploration→Growth edge — corrected 2026-06-07.)
 
