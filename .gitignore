@@ -22,6 +22,9 @@ wiki/.graph.json
 *.swp
 *~
 
+# VS Code — per-machine editor settings, not shared
+.vscode/
+
 # Secrets / local environment — never commit
 .env
 .env.*
