@@ -8,6 +8,21 @@ Permitted operations: `ingest`, `acquire`, `query`, `lint`, `synthesize`, `refac
 
 ---
 
+## [2026-06-16] ingest | Rita McGrath — "The Power of Strategic Centering" (HBR Jul–Aug 2026), via zotero-acquire
+
+**Trigger.** User: "check Zotero and ingest all new material." Ran the [[zotero-acquire]] skill against the `cmr-wiki` collection (Zotero local API, 200 OK) — one new item, acquired to `raw/articles/the-power-of-strategic-centering.md` (`zotero_item_key: LPP3C2F6`, pdftotext, full text). Acquire + Process in one session → umbrella op `ingest`.
+
+**Pages created (2):**
+
+- [[2026-07-01-mcgrath-2026-power-of-strategic-centering]] — `kind: article`, HBR feature. Full read; "The Five Centers" exhibit reproduced in Distinctive artifacts; decorative Field Kallop artwork catalogued. confidence 0.8. W&W tags: `digital-sensing/digital-scouting`, `digital-seizing/balancing-digital-portfolios`, `strategic-renewal/business-model`, `contextual/external-triggers`.
+- [[strategic-centering]] — concept. The five centers (mission/customer/technology/national-ecosystem/friction-erasure), the three functions of a center, dematerialization premise, permissionless action, the engaged-leader finding. confidence 0.7, source_count 1.
+
+**Neighbour-source scan (3 edges on the source page):** `contradicts` → [[2008-01-01-porter-five-competitive-forces]] (Five Forces "forged in the stuff economy"); `supports` → [[2004-04-01-kaplan-norton-2004-strategy-maps-soundview-summary]] (intangibles ~90%) and [[2019-12-19-warner-wager-2019-dynamic-capabilities-digital-transformation]] (sensing weak signals).
+
+**Cross-cutting touches:** [[porter-five-forces]] — added a "dematerialization critique" bullet to Debates (scope-limit, not refutation); confidence 0.9 → 0.85, accessed_at bumped. `index.md` — added the source (Strategy articles) and the concept (Competitive strategy).
+
+**Author-promotion:** Rita McGrath is single-source — listed in `author:` and marked Dangling; no entity page yet (promote on a second citing source).
+
 ## [2026-06-07] synthesize | CMR framework (Capability–Market–Risk) — integrative business-architecture concept from the final diagram
 
 **Trigger.** The user finalised their `background-docs/cmr-framework.excalidraw` diagram ("final design and synthesis") and asked to capture it. This followed an interactive session where the diagram's two capability diamonds (explore/exploit) were wrapped by a helix translating the [[devops]] ∞ loop into dynamic-capability phases — see the query-trace `inspiration/2026-06-07-devops-phases-to-dynamic-capabilities-query-trace.md`. The user relabelled the helix with their own 7-phase vocabulary (Scout / Sense / Seize / Transfer / Deploy / Monitor / Transform).

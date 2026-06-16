@@ -6,10 +6,10 @@ aliases:
   - "Five Competitive Forces"
   - "Porter Five Forces"
   - "industry structure analysis"
-confidence: 0.9
+confidence: 0.85
 last_confirmed: 2026-06-06
 source_count: 1
-accessed_at: 2026-06-06
+accessed_at: 2026-06-16
 tags:
   - five-forces
   - competitive-strategy
@@ -20,6 +20,8 @@ relationships:
   - type: supports
     target: strategic-risk-management
     via: "industry structure is an external strategic-risk surface — entrant/substitute/buyer-power shocks are risks the SRM portfolio must allocate"
+quality_score: 0.98
+quality_notes: ['1 broken body wikilink(s)']
 ---
 
 # Porter's Five Forces
@@ -94,3 +96,5 @@ Porter is explicit that **industry growth rate, technology & innovation, governm
 ## Debates and supersession
 
 _Single-source page._ The resource-based view and [[dynamic-capabilities]] literature offer a capability-side complement and partial critique (Porter underweights firm-specific heterogeneity and dynamics); ecosystem/platform theorists contest the "complements are not a sixth force" stance. Productive tension for a future synthesis, not a supersession.
+
+**Dematerialization critique (McGrath 2026).** [[strategic-centering|Strategic centering]] ([[2026-07-01-mcgrath-2026-power-of-strategic-centering]]) names Five Forces as a tool "forged in the stuff economy" that assumed *stable industry boundaries and well-defined player roles*. McGrath argues that as ~90% of corporate value becomes intangible and digital technology dissolves industry boundaries, the questions Five Forces answers ("what industry are you in?", "what position can you defend?") stop being answerable — and a firm should choose a *center* rather than defend a *position*. This is a scope-limit claim, not a refutation: Five Forces remains apt where industry boundaries are stable; centering takes over where they dissolve. The unresolved question is where that regime boundary falls.

@@ -24,6 +24,7 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 
 - [[2008-01-01-porter-five-competitive-forces]] — Michael E. Porter (2008), *HBR* reprint R0801E. The canonical Five Forces article (update of the 1979 original): industry profitability is set by the collective strength of new entrants / supplier power / buyer power / substitutes / rivalry — structure, not sector glamour, drives returns. Confidence 0.9.
 - [[2020-07-07-mckinsey-7s-model]] — Tim Vipond (CFI, 2020). Secondary explainer of the McKinsey 7S Framework: seven interdependent elements (Hard Ss: Structure/Strategy/Systems; Soft Ss: Shared Values/Skills/Style/Staff). Internal-alignment lens; confidence 0.7.
+- [[2026-07-01-mcgrath-2026-power-of-strategic-centering]] — Rita McGrath (*HBR* Jul–Aug 2026). Argues inherited frameworks (Five Forces, RBV, Blue Ocean) were "forged in the stuff economy"; in a dematerialized world (~90% of value intangible) firms should choose a *center* — one organizing principle — over a defensible position. Introduces the five centers (mission/customer/technology/national-ecosystem/friction-erasure). Confidence 0.8.
 
 ### Corporate innovation & business models (Strategyzer articles)
 
@@ -77,6 +78,7 @@ Each section is flat-listed alphabetically. Once page counts grow, sections may 
 
 - [[porter-five-forces]] — Porter's framework for industry-structure analysis: five forces (entrants / suppliers / buyers / substitutes / rivalry) determine long-run profitability. The external/industry layer of strategy. Confidence 0.9.
 - [[mckinsey-7s-framework]] — Seven interdependent organisational-design elements (Hard Ss + Soft Ss, Shared Values at centre). The internal-alignment layer; complements Porter's external view. Confidence 0.7.
+- [[strategic-centering]] — McGrath (2026): in a dematerializing economy, choose one organizing principle (a *center*) instead of defending a position. Five centers — mission / customer / technology / national-ecosystem / friction-erasure — each with a core question, best-fit condition, and risk. A scope-limit critique of [[porter-five-forces]] and a complement to [[dynamic-capabilities]]. 1 source; confidence 0.7.
 
 ### Corporate innovation
 
