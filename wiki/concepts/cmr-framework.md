@@ -45,9 +45,13 @@ This page documents the **final design** (`background-docs/cmr-framework.excalid
 
 ## The model at a glance
 
+![[cmr-framework-diagram.png|CMR framework — the Management/Exploration/Exploitation capability engine, the Profit/Risk/Growth value drivers feeding Value, the continuous-learning helix, and the three guiding principles]]
+
+*The authored diagram (above). A wiki-native schematic of the same structure follows — searchable, accessible, and editable:*
+
 ```mermaid
 flowchart LR
-  subgraph ENGINE["Capability engine (left)"]
+  subgraph ENGINE["Capability engine — internal architecture"]
     EXPL["Exploration<br/>Capability"]
     EXPT["Exploitation<br/>Capability"]
     MGMT["Management<br/>Capability"]
@@ -61,18 +65,17 @@ flowchart LR
 
   EXPL --> GROW
   EXPT --> PROF
-  MGMT -- "Strategic Risk-Taking quality" --> RISK
-  MGMT -- "Tactical Risk-Mitigation quality" --> RISK
-  MGMT -.->|steers| EXPL
-  MGMT -.->|steers| EXPT
+  MGMT --> RISK
+  MGMT -- "steers · 'Risk = opportunity'<br/>Strategic Risk-Taking quality" --> EXPL
+  MGMT -- "steers · 'Risk = threat'<br/>Tactical Risk-Mitigation quality" --> EXPT
   GROW --> VAL
   PROF --> VAL
   RISK --> VAL
 
-  EXPL <== "continuous-learning helix (DevOps ∞ loop)<br/>· Compounded Learning quality" ==> EXPT
+  EXPL <== "continuous-learning helix (DevOps ∞ loop)<br/>Compounded Learning quality · 'Quality is easy, excellence is hard'" ==> EXPT
 ```
 
-The helix coil physically wraps the two capability diamonds in the diagram; the double-arrow above stands in for it. **Both risk qualities attach to Management → Risk** — Management Capability manages *strategic* risk (taking) and *tactical* risk (mitigation) together; neither is an Exploration/Growth-edge property. *Compounded Learning quality* sits on the helix crossover.
+The helix coil physically wraps the two capability diamonds in the diagram; the double-arrow above stands in for it. **Management produces the Risk driver directly *and* steers the two loops through two opposing risk lenses:** it governs Exploration under *"Risk equals opportunity"* (modulated by the **Strategic Risk-Taking quality**) and Exploitation under *"Risk equals threat"* (modulated by the **Tactical Risk-Mitigation quality**). The *Compounded Learning quality* sits on the helix crossover under the principle *"Quality is easy; excellence is hard."* See [§ Guiding principles](#guiding-principles).
 
 ## Value core — Profit / Risk / Growth → Value
 
@@ -86,7 +89,7 @@ The left cluster is the **engine that produces the drivers**. It is the [[organi
 | --- | --- | --- |
 | **Exploration Capability** | search for new value propositions under high uncertainty | **Growth** — new value, new streams |
 | **Exploitation Capability** | run and optimise the existing business under low uncertainty | **Profit** — *sustaining a regular, recurring profit stream* from the established business |
-| **Management Capability** | govern the portfolio; allocate, balance, decide; manage **both strategic risk (taking) and tactical risk (mitigation)** | **Risk** — the risk component of value (and *steers* both capability diamonds) |
+| **Management Capability** | govern the portfolio; allocate, balance, decide; manage **both strategic risk (taking) and tactical risk (mitigation)** | **Risk** — the risk component of value (and *steers* Exploration under the *opportunity* lens, Exploitation under the *threat* lens) |
 
 The clean reading: **Exploration grows new value, Exploitation sustains existing profit, Management governs risk.** Three capabilities, three non-overlapping value drivers, one Value.
 
@@ -112,13 +115,25 @@ Read as a cycle: **Sense → Scout → Seize** (explore: *Sense* is the radar th
 
 ## Quality modulators
 
-Three "quality" annotations modulate the model — they are the *how well*:
+Three "quality" annotations modulate the model — they are the *how well* — and each carries a **guiding principle** (see [§ Guiding principles](#guiding-principles)):
 
-- **Compounded Learning quality** — on the **helix crossover**, governing how well learning compounds between exploration and exploitation. The faster and cleaner the [[devops|loop]], the more it compounds.
-- **Strategic Risk-Taking quality** — *strategic* risk, owned by **Management Capability**: how well the firm takes option-like upside bets ([[real-options]], [[two-way-door-decisions]]).
-- **Tactical Risk-Mitigation quality** — *tactical* risk, owned by **Management Capability**: how well downside is contained ([[strategic-risk-management]]).
+- **Compounded Learning quality** — on the **helix crossover**, governing how well learning compounds between exploration and exploitation. Principle: *"Quality is easy; excellence is hard."* The faster and cleaner the [[devops|loop]], the more it compounds.
+- **Strategic Risk-Taking quality** — how well Management steers **Exploration** to take option-like upside bets ([[real-options]], [[two-way-door-decisions]]). Principle: *"Risk equals opportunity."*
+- **Tactical Risk-Mitigation quality** — how well Management steers **Exploitation** to contain downside and protect the recurring Profit stream ([[strategic-risk-management]]). Principle: *"Risk equals threat."*
 
-**Both risk qualities are dimensions of Management Capability's governance of the Risk driver** — Management manages *strategic* risk (taking) and *tactical* risk (mitigation) as one job, not two separate owners. They modulate the Management → Risk edge; neither belongs to Exploration's Growth path. (An earlier draft mis-attributed risk-taking to the Exploration→Growth edge — corrected 2026-06-07.)
+**The two risk qualities are the two faces of Management's risk governance, applied to opposite loops:** the *opportunity* lens drives Exploration (offence → Growth); the *threat* lens guards Exploitation (defence → Profit). Management still produces the **Risk** value-driver directly; the qualities modulate *how* it steers each loop. (An earlier draft attached both qualities to a single Management → Risk edge; the 2026-06-16 diagram splits them onto the two steering arcs.)
+
+## Guiding principles
+
+The model carries three mottos — short principles stating the stance each part of the engine takes:
+
+| Principle | Attaches to | Meaning |
+| --- | --- | --- |
+| **"Risk equals opportunity"** | Management → Exploration (Strategic Risk-Taking quality) | The **offensive** risk lens: in the explore loop, risk is the upside you pursue — it justifies option-like bets on the new, the source of **Growth**. |
+| **"Risk equals threat"** | Management → Exploitation (Tactical Risk-Mitigation quality) | The **defensive** risk lens: in the exploit loop, risk is the downside you contain to protect the established, recurring **Profit** stream. |
+| **"Quality is easy; excellence is hard"** | the continuous-learning helix (Compounded Learning quality) | Producing acceptable output is cheap; compounding learning into *sustained excellence* through the loop is the hard, differentiating work. |
+
+The two risk principles are the same two-sided view of risk the wiki records under [[strategic-risk-management]] and [[real-options]] (downside *threat* vs upside *opportunity*) — here **split across the two loops**, so that Exploration is governed offensively and Exploitation defensively. This is what lets one Management Capability run both modes without contradiction: it applies the opportunity lens where the firm is searching and the threat lens where it is harvesting. The quality principle frames the [[devops|continuous-learning loop]] as the place where ordinary competence is turned into hard-won excellence — the reason the helix, not any single phase, carries the Compounded Learning quality.
 
 ## How it marries the source models
 
